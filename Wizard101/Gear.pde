@@ -8,3 +8,16 @@ public class Gear{
     damage = newdamage;
     resistance = newresistance;
   }
+  
+  public void sethealth(int newhealth){
+    health = newhealth;
+  }
+  
+  public void setdamage(int newdamage){
+    damage = newdamage;
+  }
+  
+  public void setresistance(int newresistance){
+    resistance = newresistance;
+  }
+}
