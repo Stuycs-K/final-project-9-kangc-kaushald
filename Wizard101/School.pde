@@ -1,7 +1,11 @@
 public class School {
   String schoolType;
-  Cards cards;
+  Card cards;
   public School(String school) {
     schoolType = school;
+  }
+  
+  public String getSchoolType(){
+    return schoolType;
   }
 }
