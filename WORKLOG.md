@@ -9,7 +9,9 @@
 //Added getSchoolType accessor method for School class
 //basic setup and draw methods so program compiles
 
-
+5/23/23
+had the screen size set up and tried to add the health bar on screen but the health bar is not printing
+must go back and make some revision
 ### date y
 
 info
