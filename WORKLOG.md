@@ -21,6 +21,8 @@ info
 //Created the School class(instance variables, constructors, accessor methods)
 //Created the Card class with basic instance variables damage and pips, but need to update it so spells can do other things than just damage
 
-### date y
-
+### date 5/23/23
 info
+//Created an Imp class, which is a spell that only does damage
+//Brainstorming ways to create cards that do different things(like buff/debuff)
+//Researching how to create a turn-based game
