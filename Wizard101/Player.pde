@@ -1,8 +1,8 @@
 public class Player{
-  int health = 100;
-  int pips = 0;
-  float damage = 1.0;
-  float resistance = 1.0;
+  int health;
+  int pips;
+  float damage;
+  float resistance;
   School school;
   Gear gear;
   
