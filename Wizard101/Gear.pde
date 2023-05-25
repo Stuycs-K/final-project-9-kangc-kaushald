@@ -1,7 +1,7 @@
 public class Gear{
   int health;
-  int damage;
-  int resistance;
+  float damage;
+  float resistance;
   
   public Gear(int newhealth, int newdamage, int newresistance){
     health = newhealth;
@@ -9,15 +9,18 @@ public class Gear{
     resistance = newresistance;
   }
   
-  public void sethealth(int newhealth){
-    health = newhealth;
+  public int getHealth(){
+    return health;
   }
   
-  public void setdamage(int newdamage){
-    damage = newdamage;
+  public float getDamage(){
+    return damage;
   }
   
-  public void setresistance(int newresistance){
-    resistance = newresistance;
+  public float getResistance(){
+    return resistance;
+  }
+  
+  public void test(){
   }
 }

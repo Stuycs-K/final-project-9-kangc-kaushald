@@ -8,8 +8,11 @@ info
 //Added getSchoolType accessor method for School class
 //basic setup and draw methods so program compiles
 
-
-### date y
+5/23/23
+had the screen size set up and tried to add the health bar on screen but the health bar is not printing
+must go back and make some revision
+### date 5/24/23
+created the method for button push as a test version to print out 5 different numbers depending on the number key pressed
 
 info
 
