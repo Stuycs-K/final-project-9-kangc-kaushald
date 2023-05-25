@@ -3,11 +3,9 @@ public class Player{
   int pips;
   float damage;
   float resistance;
-  School school;
   Gear gear;
   
-  public Player(School school, Gear gear) {
-    this.school = school;
+  public Player(Gear gear) {
     this.gear = gear;
   }
   
