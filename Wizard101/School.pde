@@ -8,4 +8,5 @@ public class School {
   public String getSchoolType(){
     return schoolType;
   }
+  //testing git branching
 }

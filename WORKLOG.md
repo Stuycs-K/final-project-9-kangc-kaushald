@@ -1,9 +1,8 @@
 # Work Log
 
-## GROUP MEMBER 1
-//Chanmin Kang//
-### date x
-5/22/23
+## Chanmin Kang
+### date 5/22/23
+info
 //Created Gear(instance variables, constructors, accessor methods)
 //Player instance variables
 //Added getSchoolType accessor method for School class
@@ -17,12 +16,15 @@ must go back and make some revision
 info
 
 
-## GROUP MEMBER 2
-
-### date x
-
+## Dean Kaushal
+### date 5/22/23
 info
+//Created the Player class(instance variables, constructors, accessor methods)
+//Created the School class(instance variables, constructors, accessor methods)
+//Created the Card class with basic instance variables damage and pips, but need to update it so spells can do other things than just damage
 
-### date y
-
+### date 5/23/23
 info
+//Created an Imp class, which is a spell that only does damage
+//Brainstorming ways to create cards that do different things(like buff/debuff)
+//Researching how to create a turn-based game
