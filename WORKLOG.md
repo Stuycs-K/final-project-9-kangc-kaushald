@@ -8,9 +8,10 @@ info
 //Added getSchoolType accessor method for School class
 //basic setup and draw methods so program compiles
 
-5/23/23
+### date 5/23/23
 had the screen size set up and tried to add the health bar on screen but the health bar is not printing
 must go back and make some revision
+
 ### date 5/24/23
 created the method for button push as a test version to print out 5 different numbers depending on the number key pressed
 
@@ -29,3 +30,8 @@ info
 //Created an Imp class, which is a spell that only does damage
 //Brainstorming ways to create cards that do different things(like buff/debuff)
 //Researching how to create a turn-based game
+
+### date 5/24/23
+info
+//created a SupportCard class which should be a parent function for future buff/debuff cards added
+//changed Player, Gear, and School classes to fit updated logic about Player stats
