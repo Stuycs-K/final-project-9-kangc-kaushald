@@ -9,16 +9,16 @@ public class Gear{
     resistance = newresistance;
   }
   
-  public void sethealth(int newhealth){
-    health = newhealth;
+  public int getHealth(){
+    return health;
   }
   
-  public void setdamage(int newdamage){
-    damage = newdamage;
+  public int getDamage(){
+    return damage;
   }
   
-  public void setresistance(int newresistance){
-    resistance = newresistance;
+  public int getResistance(){
+    return resistance;
   }
   
   public void test(){
