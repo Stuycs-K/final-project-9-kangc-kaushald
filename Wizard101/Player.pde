@@ -26,5 +26,11 @@ public class Player{
   public float getResistance() {
     return resistance;
   }
+  
+public String healthbar(int current , int health){
+  String result = "";
+  result += "" + current + "/" + health;
+  return result;
+}
 }
   

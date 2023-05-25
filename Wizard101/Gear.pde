@@ -20,4 +20,7 @@ public class Gear{
   public void setresistance(int newresistance){
     resistance = newresistance;
   }
+  
+  public void test(){
+  }
 }
