@@ -9,6 +9,9 @@ public class School {
     schoolType = school;
   }
   
+  public School() {
+  }
+  
   public String getSchoolType(){
     return schoolType;
   }
