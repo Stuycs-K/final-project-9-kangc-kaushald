@@ -1,8 +1,7 @@
+  Player test = new Player();
 void setup(){
   keyboardInput = new Controller();
-  Player test = new Player();
   size(640 , 360);
-  test.getHealth();
 }
 
 public String healthbar(int current , int health){
@@ -13,6 +12,7 @@ public String healthbar(int current , int health){
 
 void draw(){
   background(255);
+  text(""+test.getHealth() , 20 , 20);
   rect(0 , height-30 , 100 , 10);
   fill(0 , 255 , 0);
   rect(0 , height-30 , 100 - 20, 10);
@@ -36,6 +36,9 @@ void draw(){
     text("The Key is 5" , 10 , 10);
   }
   fill(0);
+  Card card = new Imp();
+  text("" + card.getDamage() , 10 , 10);
+  test.setHealth(test.getHealth() - card.getDamage() );
 }
 
 

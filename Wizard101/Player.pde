@@ -1,14 +1,18 @@
+import java.util.*;
+
 public class Player{
   int health = 100;
   int pips = 0;
   float damage = 1.0;
   float resistance = 1.0;
+  ArrayList<Card> deck = new ArrayList<Card>(20);
   School school;
   Gear gear;
   
-  public Player(School school, Gear gear) {
+  public Player(School school, Gear gear , ArrayList<Card> newDeck) {
     this.school = school;
     this.gear = gear;
+    deck = newDeck;
   }
   
   public Player(){
@@ -29,6 +33,7 @@ public class Player{
   public float getResistance() {
     return resistance;
   }
+  
   
   public void setHealth(int newHealth){
     health = newHealth;
