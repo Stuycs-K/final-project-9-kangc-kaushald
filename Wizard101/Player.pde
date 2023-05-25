@@ -11,6 +11,9 @@ public class Player{
     this.gear = gear;
   }
   
+  public Player(){
+    
+  }
   public int getHealth() {
     return health;
   }

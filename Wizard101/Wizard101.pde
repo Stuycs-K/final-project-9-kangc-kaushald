@@ -1,6 +1,8 @@
 void setup(){
   keyboardInput = new Controller();
+  Player test = new Player();
   size(640 , 360);
+  test.getHealth();
 }
 
 public String healthbar(int current , int health){
@@ -34,7 +36,6 @@ void draw(){
     text("The Key is 5" , 10 , 10);
   }
   fill(0);
-  text("Try pressing one or more\n of: 12345 keys", 10, 50);
 }
 
 
