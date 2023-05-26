@@ -1,12 +1,9 @@
-public class School {
+public class School extends Player{
   String schoolType;
-  Card cards;
-  int health;
-  float damage;
-  float resistance;
+  ArrayList<Card> deck;
   
-  public School(String school) {
-    schoolType = school;
+  public School(Gear gear) {
+    super();
   }
   
   public School() {
