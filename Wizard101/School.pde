@@ -4,19 +4,19 @@ public class School extends Player{
     super(gear);
   }
   
-  public String getSchoolType(){
-    return schoolType;
-  }
+  //public String getSchoolType(){
+  //  return schoolType;
+  //}
   
-    public int getHealth(){
-    return health;
-  }
+  //  public int getHealth(){
+  //  return health;
+  //}
   
-  public float getDamage(){
-    return damage;
-  }
+  //public float getDamage(){
+  //  return damage;
+  //}
   
-  public float getResistance(){
-    return resistance;
-  }
+  //public float getResistance(){
+  //  return resistance;
+  //}
 }
