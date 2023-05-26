@@ -1,13 +1,13 @@
 public class Player{
-  int health = 100;
-  int pips = 0;
-  float damage = 1.0;
-  float resistance = 1.0;
-  School school;
+  int health;
+  int pips;
+  float damage;
+  float resistance;
   Gear gear;
+  String schoolType;
+  ArrayList<Card> deck;
   
-  public Player(School school, Gear gear) {
-    this.school = school;
+  public Player(Gear gear) {
     this.gear = gear;
   }
   
