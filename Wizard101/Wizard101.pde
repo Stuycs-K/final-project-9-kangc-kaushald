@@ -1,14 +1,11 @@
   Player test = new Player();
+  boolean done = true;
 void setup(){
   keyboardInput = new Controller();
   size(640 , 360);
 }
 
-public String healthbar(int current , int health){
-  String result = "";
-  result += "" + current + "/" + health;
-  return result;
-}
+
 
 void draw(){
   background(255);
@@ -17,7 +14,7 @@ void draw(){
   fill(0 , 255 , 0);
   rect(0 , height-30 , 100 - 20, 10);
   fill(255 , 0 , 0);
-  text(healthbar(100 , 100) , 30, height-20);
+  text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
    if (keyboardInput.isPressed(Controller.P1)) {
    text("The Key is 1" , 10 , 10);
@@ -38,7 +35,10 @@ void draw(){
   fill(0);
   Card card = new Imp();
   text("" + card.getDamage() , 10 , 10);
-  test.setHealth(test.getHealth() - card.getDamage() );
+  if(done && keyboardInput.isPressed(Controller.P5)){
+  test.setHealth(test.getHealth() - card.getDamage());
+  done = false;
+  }
 }
 
 
