@@ -35,3 +35,9 @@ info
 info
 //created a SupportCard class which should be a parent function for future buff/debuff cards added
 //changed Player, Gear, and School classes to fit updated logic about Player stats
+
+### date 5/25/23
+info
+//created a Life class which extends School and changed Player stats based on it
+//came up with a new set of class relations. SchoolType extends School extends Player
+//changed instance variables for Player accordingly
