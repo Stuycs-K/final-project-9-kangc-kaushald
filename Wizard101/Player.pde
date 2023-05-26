@@ -4,6 +4,8 @@ public class Player{
   float damage;
   float resistance;
   Gear gear;
+  String schoolType;
+  ArrayList<Card> deck;
   
   public Player(Gear gear) {
     this.gear = gear;
