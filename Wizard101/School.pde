@@ -1,6 +1,4 @@
 public class School extends Player{
-  String schoolType;
-  ArrayList<Card> deck;
   
   public School(Gear gear) {
     super();
