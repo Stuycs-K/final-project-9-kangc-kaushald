@@ -1,10 +1,7 @@
 public class School extends Player{
   
   public School(Gear gear) {
-    super();
-  }
-  
-  public School() {
+    super(gear);
   }
   
   public String getSchoolType(){
