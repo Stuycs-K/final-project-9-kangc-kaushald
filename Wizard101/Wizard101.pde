@@ -1,4 +1,5 @@
-  Player test = new Player();
+  Gear test1 = new Gear(100 , 1  , 1);
+  Player test = new Player(test1);
   boolean done = true;
 void setup(){
   keyboardInput = new Controller();
@@ -16,18 +17,23 @@ void draw(){
   fill(255 , 0 , 0);
   text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
-   if (keyboardInput.isPressed(Controller.P1)) {
-   text("The Key is 1" , 10 , 10);
+  float base = test1.getDamage();
+  key = 1;
+   if (keyPressed) {
+     while(base+0.1 > test1.getDamage()){
+     test1.damageBoost();
+     }
   }
   //check if the button P1_RIGHT is being pressed:
   if (keyboardInput.isPressed(Controller.P2)) {
-   text("The Key is 2" , 10 , 10);
+    test1.resistanceBoost();
   }if (keyboardInput.isPressed(Controller.P3)) {
-    text("The Key is 3" , 10 , 10);
+    test1.balanced();
   }
   //check if the button P1_RIGHT is being pressed:
   if (keyboardInput.isPressed(Controller.P4)) {
-    text("The Key is 4" , 10 , 10);
+    text(""+test1.getDamage() , 200, 100);
+    text(""+test1.getResistance() , 300, 100);
   }
   if (keyboardInput.isPressed(Controller.P5)) {
     text("The Key is 5" , 10 , 10);
