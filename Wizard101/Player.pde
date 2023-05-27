@@ -1,23 +1,16 @@
-import java.util.*;
-
 public class Player{
-  int health = 100;
-  int pips = 0;
-  float damage = 1.0;
-  float resistance = 1.0;
-  ArrayList<Card> deck = new ArrayList<Card>(20);
-  School school;
+  int health;
+  int pips;
+  float damage;
+  float resistance;
   Gear gear;
+  String schoolType;
+  ArrayList<Card> deck;
   
-  public Player(School school, Gear gear , ArrayList<Card> newDeck) {
-    this.school = school;
+  public Player(Gear gear) {
     this.gear = gear;
-    deck = newDeck;
   }
   
-  public Player(){
-    
-  }
   public int getHealth() {
     return health;
   }
@@ -33,7 +26,6 @@ public class Player{
   public float getResistance() {
     return resistance;
   }
-  
   
   public void setHealth(int newHealth){
     health = newHealth;
