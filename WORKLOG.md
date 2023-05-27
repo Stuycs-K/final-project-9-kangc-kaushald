@@ -16,8 +16,10 @@ must go back and make some revision
 created the method for button push as a test version to print out 5 different numbers depending on the number key pressed
 
 ### date 5/25/23
-Updated player by a bit and mainly worked on fixing the stat application process and added gear types 
+Updated player by a bit and mainly worked on fixing the stat application process and added gear types
 
+### date 5/26/23
+Tried to update the gear and understand the gear mechanism
 info
 
 
