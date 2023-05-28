@@ -46,3 +46,9 @@ info
 //created a Life class which extends School and changed Player stats based on it
 //came up with a new set of class relations. SchoolType extends School extends Player
 //changed instance variables for Player accordingly
+
+### date 5/26/23
+info
+//move instance variables from School to Player because the parent class should have all of the instance variables
+//edited constructors in Player, School, and SchoolTypes to take in a piece of Gear and sets stats based off it
+//looking into how to create a turn based game

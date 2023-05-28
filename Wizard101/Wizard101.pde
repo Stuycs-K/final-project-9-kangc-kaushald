@@ -1,15 +1,15 @@
   Gear test1 = new Gear(100 , 1  , 1);
   Player test = new Player(test1);
-  boolean done = true;
 void setup(){
   keyboardInput = new Controller();
   size(640 , 360);
 }
 
 
-
+//actual methods//
 void draw(){
   background(255);
+  //healthbar setup//
   text(""+test.getHealth() , 20 , 20);
   rect(0 , height-30 , 100 , 10);
   fill(0 , 255 , 0);
@@ -18,34 +18,18 @@ void draw(){
   text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
   float base = test1.getDamage();
-  key = 1;
-   if (keyPressed) {
-     while(base+0.1 > test1.getDamage()){
-     test1.damageBoost();
-     }
+  //key 1 is damage key 2 is resistance key 3 is balanced//
+   if (keyboardInput.isPressed(Controller.P1)) {
+     Gear damage = new Gear(100 , 1.1 , 1.0);
+     text("Done" , 0 , 100);
   }
-  //check if the button P1_RIGHT is being pressed:
   if (keyboardInput.isPressed(Controller.P2)) {
-    test1.resistanceBoost();
+    Gear resistance = new Gear(100 , 1.0 , 1.1);
   }if (keyboardInput.isPressed(Controller.P3)) {
-    test1.balanced();
-  }
-  //check if the button P1_RIGHT is being pressed:
-  if (keyboardInput.isPressed(Controller.P4)) {
-    text(""+test1.getDamage() , 200, 100);
-    text(""+test1.getResistance() , 300, 100);
-  }
-  if (keyboardInput.isPressed(Controller.P5)) {
-    text("The Key is 5" , 10 , 10);
-  }
-  fill(0);
-  Card card = new Imp();
-  text("" + card.getDamage() , 10 , 10);
-  if(done && keyboardInput.isPressed(Controller.P5)){
-  test.setHealth(test.getHealth() - card.getDamage());
-  done = false;
+    Gear balanced = new Gear(100 , 1.05 , 1.05);
   }
 }
+
 
 
 Controller keyboardInput;
