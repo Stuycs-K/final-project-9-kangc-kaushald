@@ -2,7 +2,7 @@ public class Gear{
   int health;
   float damage;
   float resistance;
-  String[] type = {"damage" , "resistance" , "balanced"};
+  //String[] type = {"damage" , "resistance" , "balanced"};
   
   public Gear(int newhealth, int newdamage, int newresistance){
     health = newhealth;
