@@ -1,5 +1,5 @@
-  Gear test1 = new Gear(100 , 1  , 1);
-  Player test = new Player(test1);
+  //Gear test1 = new Gear(100 , 1  , 1);
+  //Player test = new Player(test1);
 void setup(){
   keyboardInput = new Controller();
   size(640 , 360);
@@ -10,24 +10,26 @@ void setup(){
 void draw(){
   background(255);
   //healthbar setup//
-  text(""+test.getHealth() , 20 , 20);
-  rect(0 , height-30 , 100 , 10);
-  fill(0 , 255 , 0);
-  rect(0 , height-30 , 100 - 20, 10);
-  fill(255 , 0 , 0);
-  text(test.healthbar(100 , 100) , 30, height-20);
+  //text(""+test.getHealth() , 20 , 20);
+  //rect(0 , height-30 , 100 , 10);
+  //fill(0 , 255 , 0);
+  //rect(0 , height-30 , 100 - 20, 10);
+  //fill(255 , 0 , 0);
+  //text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
-  float base = test1.getDamage();
+  //float base = test1.getDamage();
+  Gear gear1 = new Gear(0, 0, 0); //base gear with no added stats
   //key 1 is damage key 2 is resistance key 3 is balanced//
-   if (keyboardInput.isPressed(Controller.P1)) {
-     Gear damage = new Gear(100 , 1.1 , 1.0);
-     text("Done" , 0 , 100);
+  if (keyboardInput.isPressed(Controller.P1)) {
+    gear1 = new Gear(100 , .2 , .05);//damage heavy gear
   }
   if (keyboardInput.isPressed(Controller.P2)) {
-    Gear resistance = new Gear(100 , 1.0 , 1.1);
-  }if (keyboardInput.isPressed(Controller.P3)) {
-    Gear balanced = new Gear(100 , 1.05 , 1.05);
+    gear1 = new Gear(300 , .05 , .2);//resistance heavy gear
   }
+  if (keyboardInput.isPressed(Controller.P3)) {
+    gear1 = new Gear(200 , .1 , .1);//balanced gear
+  } 
+  text(""+gear1.getDamage(), height/2, width/2);
 }
 
 
