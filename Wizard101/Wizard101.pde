@@ -2,7 +2,7 @@
   //Player test = new Player(test1);
 void setup(){
   keyboardInput = new Controller();
-  size(640 , 360);
+  size(1080 , 720);
 }
 
 
@@ -29,7 +29,7 @@ void draw(){
   if (keyboardInput.isPressed(Controller.P3)) {
     gear1 = new Gear(200 , .1 , .1);//balanced gear
   } 
-  text(""+gear1.getDamage(), height/2, width/2);
+  text(""+gear1.getDamage(), width/2, height/2);
 }
 
 
