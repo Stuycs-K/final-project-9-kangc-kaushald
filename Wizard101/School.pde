@@ -1,27 +1,25 @@
-public class School {
-  String schoolType;
-  Card cards;
-  int health;
-  float damage;
-  float resistance;
-  
-  public School(String school) {
-    schoolType = school;
+public class School extends Player{
+
+  public School(){
+    
+  }
+  public School(Gear gear) {
+    super(gear);
   }
   
-  public String getSchoolType(){
-    return schoolType;
-  }
+  //public String getSchoolType(){
+  //  return schoolType;
+  //}
   
-    public int getHealth(){
-    return health;
-  }
+  //  public int getHealth(){
+  //  return health;
+  //}
   
-  public float getDamage(){
-    return damage;
-  }
+  //public float getDamage(){
+  //  return damage;
+  //}
   
-  public float getResistance(){
-    return resistance;
-  }
+  //public float getResistance(){
+  //  return resistance;
+  //}
 }
