@@ -1,6 +1,6 @@
-  Gear test1 = new Gear(100 , 1  , 1);
-  Player test = new Player(test1);
-  boolean done = true;
+  //Gear test1 = new Gear(100 , 1  , 1);
+  //Player test = new Player(test1);
+  //boolean done = true;
 void setup(){
   keyboardInput = new Controller();
   size(640 , 360);
