@@ -36,25 +36,26 @@ void draw(){
   text(""+gear1.getDamage(), width/2, height/2);
   Player player1 = new Life(gear1);
   text(""+player1.getDamage(), width/2+100, height/2);
+  loop();
+  Gear gear2 = new Gear(0, 0, 0);
   if(moves == 1){
-    Gear gear2 = new Gear(0, 0, 0); //base gear with no added stats
     //key 1 is damage key 2 is resistance key 3 is balanced//
-    if (keyboardInput.isPressed(Controller.P1)) {
+    if (keyboardInput.isPressed(Controller.P4)) {
       gear2 = new Gear(100 , .2 , .05);//damage heavy gear
       noLoop();
     }
-    if (keyboardInput.isPressed(Controller.P2)) {
+    if (keyboardInput.isPressed(Controller.P5)) {
       gear2 = new Gear(300 , .05 , .2);//resistance heavy gear
       noLoop();
     }
-    if (keyboardInput.isPressed(Controller.P3)) {
+    if (keyboardInput.isPressed(Controller.P6)) {
       gear2 = new Gear(200 , .1 , .1);//balanced gear
       noLoop();
     } 
-    text(""+gear2.getDamage(), width/2, height/2+100);
-    Player player2 = new Life(gear1);
-    text(""+player2.getDamage(), width/2+100, height/2+100);
   }
+  text(""+gear2.getDamage(), width/2, height/2+100);
+  Player player2 = new Life(gear2);
+  text(""+player2.getDamage(), width/2+100, height/2+100);
 }
 
 
@@ -80,10 +81,11 @@ class Controller {
   static final int P3 = 2;
   static final int P4 = 3;
   static final int P5 = 4;
+  static final int P6 = 5;
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[5];//2 valid buttons
+    inputs = new boolean[6];//2 valid buttons
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -103,6 +105,8 @@ class Controller {
       inputs[P4] = true;
     if(code == '5')
       inputs[P5] = true;
+    if(code == '6')
+      inputs[P6] = true;
   }
   void release(int code) {
      if(code == '1')
@@ -115,5 +119,7 @@ class Controller {
       inputs[P4] = false;
     if(code == '5')
       inputs[P5] = false;
+    if(code == '6')
+      inputs[P6] = false;
   }
 }
