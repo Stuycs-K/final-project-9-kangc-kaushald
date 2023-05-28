@@ -4,6 +4,7 @@
 void setup(){
   keyboardInput = new Controller();
   size(1080 , 720);
+  textSize(32);
 }
 
 
@@ -58,7 +59,21 @@ void draw(){
   text(""+player2.getDamage(), width/2+100, height/2+100);
 }
 
-
+public Gear assignGear(){
+  Gear gear = new Gear(0, 0, 0); //base gear with no added stats
+  //key 1 is damage key 2 is resistance key 3 is balanced//
+  if (keyboardInput.isPressed(Controller.P1)) {
+    gear = new Gear(100 , .2 , .05);//damage heavy gear
+  }
+  if (keyboardInput.isPressed(Controller.P2)) {
+    gear = new Gear(300 , .05 , .2);//resistance heavy gear
+  }
+  if (keyboardInput.isPressed(Controller.P3)) {
+    gear = new Gear(200 , .1 , .1);//balanced gear
+  } 
+  return gear;
+}
+  
 
 Controller keyboardInput;
 
@@ -70,9 +85,6 @@ void keyPressed() {
 void keyReleased() {
   keyboardInput.release(keyCode);
 }
-
-
-
 
 /**************CONTROLLER TAB************/
 class Controller {
