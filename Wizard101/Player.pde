@@ -7,6 +7,9 @@ public class Player{
   String schoolType;
   ArrayList<Card> deck;
   
+  public Player(){
+    
+  }
   public Player(Gear gear) {
     this.gear = gear;
   }

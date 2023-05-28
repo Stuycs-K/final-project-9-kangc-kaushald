@@ -1,5 +1,8 @@
 public class School extends Player{
-  
+
+  public School(){
+    
+  }
   public School(Gear gear) {
     super(gear);
   }

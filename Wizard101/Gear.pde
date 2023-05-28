@@ -23,15 +23,15 @@ public class Gear{
   }
   
   public void damageBoost(){
-    damage *= 3.0;
+    damage += .1;
   }
   
   public void resistanceBoost(){
-    resistance*=3.0;
+    resistance+=.1;
   }
   
   public void balanced(){
-    damage*= 1.5;
-    resistance*=1.5;
+    damage+=.05;
+    resistance+=.05;
   }
 }
