@@ -22,14 +22,19 @@ void draw(){
   //key 1 is damage key 2 is resistance key 3 is balanced//
   if (keyboardInput.isPressed(Controller.P1)) {
     gear1 = new Gear(100 , .2 , .05);//damage heavy gear
+    noLoop();
   }
   if (keyboardInput.isPressed(Controller.P2)) {
     gear1 = new Gear(300 , .05 , .2);//resistance heavy gear
+    noLoop();
   }
   if (keyboardInput.isPressed(Controller.P3)) {
     gear1 = new Gear(200 , .1 , .1);//balanced gear
+    noLoop();
   } 
   text(""+gear1.getDamage(), width/2, height/2);
+  Player player1 = new Life(gear1);
+  text(""+player1.getDamage(), width/2+100, height/2);
 }
 
 
