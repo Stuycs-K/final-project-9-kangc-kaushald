@@ -1,5 +1,6 @@
   //Gear test1 = new Gear(100 , 1  , 1);
   //Player test = new Player(test1);
+  int moves = 0;
 void setup(){
   keyboardInput = new Controller();
   size(1080 , 720);
@@ -35,6 +36,25 @@ void draw(){
   text(""+gear1.getDamage(), width/2, height/2);
   Player player1 = new Life(gear1);
   text(""+player1.getDamage(), width/2+100, height/2);
+  if(moves == 1){
+    Gear gear2 = new Gear(0, 0, 0); //base gear with no added stats
+    //key 1 is damage key 2 is resistance key 3 is balanced//
+    if (keyboardInput.isPressed(Controller.P1)) {
+      gear2 = new Gear(100 , .2 , .05);//damage heavy gear
+      noLoop();
+    }
+    if (keyboardInput.isPressed(Controller.P2)) {
+      gear2 = new Gear(300 , .05 , .2);//resistance heavy gear
+      noLoop();
+    }
+    if (keyboardInput.isPressed(Controller.P3)) {
+      gear2 = new Gear(200 , .1 , .1);//balanced gear
+      noLoop();
+    } 
+    text(""+gear2.getDamage(), width/2, height/2+100);
+    Player player2 = new Life(gear1);
+    text(""+player2.getDamage(), width/2+100, height/2+100);
+  }
 }
 
 
@@ -43,6 +63,7 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
+  moves++;
 }
 
 void keyReleased() {
