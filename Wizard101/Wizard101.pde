@@ -45,16 +45,16 @@ void draw(){
     createPlayer = true;
   }
   
-  text(""+gear1.getDamage(), width/2, height/2);
-  text(""+gear2.getDamage(), width/2, height/2+100);
+  text(""+gear1.getHealth(), width/2, height/2);
+  text(""+gear2.getHealth(), width/2, height/2+100);
   
   if(createPlayer && !gearFlag1 && !gearFlag2){
     player1 = new Life(gear1);
     player2 = new Life(gear2);
   }
   
-  text(""+player1.getDamage(), width/2+100, height/2);
-  text(""+player2.getDamage(), width/2+100, height/2+100);
+  text(""+player1.getHealth(), width/2+100, height/2);
+  text(""+player2.getHealth(), width/2+100, height/2+100);
   
   
 }
