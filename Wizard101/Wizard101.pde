@@ -6,6 +6,8 @@
   boolean createPlayer = false;
   Player player1 = new Life(gear1);
   Player player2 = new Life(gear2);
+  boolean turn1 = true;
+  Card imp = new Imp();
 
 void setup(){
   keyboardInput = new Controller();
@@ -55,8 +57,11 @@ void draw(){
   
   text(""+player1.getHealth(), width/2+100, height/2);
   text(""+player2.getHealth(), width/2+100, height/2+100);
-  
-  
+
+}
+
+void mouseClicked(){
+  attack(player1, imp);
 }
 
 public Gear assignGear(){
@@ -71,6 +76,10 @@ public Gear assignGear(){
     gear = new Gear(200 , .1 , .1);//balanced gear
   } 
   return gear;
+}
+
+void attack(Player player, Card card){
+  player.setHealth(player.getHealth() - card.getDamage());
 }
   
 
