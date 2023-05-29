@@ -1,36 +1,66 @@
-  Gear test1 = new Gear(100 , 1  , 1);
-  Player test = new Player(test1);
+  Gear gear1 = new Gear(0, 0, 0);
+  Gear gear2 = new Gear(0, 0, 0);
+  boolean gearFlag1 = true;
+  boolean gearFlag2 = false;
+  int countdown;
+
 void setup(){
   keyboardInput = new Controller();
-  size(640 , 360);
+  size(1080 , 720);
+  textSize(32);
+  countdown = 0;
 }
 
 
 //actual methods//
 void draw(){
+  
+  if(countdown > 0){
+    countdown --;
+  }
+  
   background(255);
   //healthbar setup//
-  text(""+test.getHealth() , 20 , 20);
+  //text(""+test.getHealth() , 20 , 20);
   rect(0 , height-30 , 100 , 10);
   fill(0 , 255 , 0);
   rect(0 , height-30 , 100 - 20, 10);
   fill(255 , 0 , 0);
-  text(test.healthbar(100 , 100) , 30, height-20);
+  //text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
-  float base = test1.getDamage();
-  //key 1 is damage key 2 is resistance key 3 is balanced//
-   if (keyboardInput.isPressed(Controller.P1)) {
-     Gear damage = new Gear(100 , 1.1 , 1.0);
-     text("Done" , 0 , 100);
+  
+  if(gearFlag1 && keyPressed){
+    gear1 = assignGear();
+    gearFlag1 = false;
+    gearFlag2 = true;
+    countdown += 120;
   }
-  if (keyboardInput.isPressed(Controller.P2)) {
-    Gear resistance = new Gear(100 , 1.0 , 1.1);
-  }if (keyboardInput.isPressed(Controller.P3)) {
-    Gear balanced = new Gear(100 , 1.05 , 1.05);
+  
+  if(gearFlag2 && keyPressed && countdown == 0){
+    gear2 = assignGear();
+    gearFlag2 = false;
   }
+  
+  text(""+gear1.getDamage(), width/2, height/2);
+  text(""+gear2.getDamage(), width/2, height/2+100);
+
 }
 
-
+public Gear assignGear(){
+  Gear gear = new Gear(0, 0, 0); //base gear with no added stats
+  //key 1 is damage key 2 is resistance key 3 is balanced//
+  if (keyboardInput.isPressed(Controller.P1)) {
+    gear = new Gear(100 , .2 , .05);//damage heavy gear
+  }
+  if (keyboardInput.isPressed(Controller.P2)) {
+    gear = new Gear(300 , .05 , .2);//resistance heavy gear
+  }
+  if (keyboardInput.isPressed(Controller.P3)) {
+    gear = new Gear(200 , .1 , .1);//balanced gear
+  } 
+  return gear;
+}
+  
 
 Controller keyboardInput;
 
@@ -42,9 +72,6 @@ void keyReleased() {
   keyboardInput.release(keyCode);
 }
 
-
-
-
 /**************CONTROLLER TAB************/
 class Controller {
   static final int P1 = 0;
@@ -52,10 +79,11 @@ class Controller {
   static final int P3 = 2;
   static final int P4 = 3;
   static final int P5 = 4;
+  static final int P6 = 5;
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[5];//2 valid buttons
+    inputs = new boolean[6];//2 valid buttons
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -75,6 +103,8 @@ class Controller {
       inputs[P4] = true;
     if(code == '5')
       inputs[P5] = true;
+    if(code == '6')
+      inputs[P6] = true;
   }
   void release(int code) {
      if(code == '1')
@@ -87,5 +117,7 @@ class Controller {
       inputs[P4] = false;
     if(code == '5')
       inputs[P5] = false;
+    if(code == '6')
+      inputs[P6] = false;
   }
 }
