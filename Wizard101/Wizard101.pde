@@ -1,71 +1,49 @@
-  //Gear test1 = new Gear(100 , 1  , 1);
-  //Player test = new Player(test1);
-  int moves = 0;
-  //Gear gear1 = assignGear();
   Gear gear1 = new Gear(0, 0, 0);
+  Gear gear2 = new Gear(0, 0, 0);
   boolean gearFlag1 = true;
-  boolean gearFlag2 = true;
+  boolean gearFlag2 = false;
+  int countdown;
+
 void setup(){
   keyboardInput = new Controller();
   size(1080 , 720);
   textSize(32);
+  countdown = 0;
 }
 
 
 //actual methods//
 void draw(){
+  
+  if(countdown > 0){
+    countdown --;
+  }
+  
   background(255);
   //healthbar setup//
   //text(""+test.getHealth() , 20 , 20);
-  //rect(0 , height-30 , 100 , 10);
-  //fill(0 , 255 , 0);
-  //rect(0 , height-30 , 100 - 20, 10);
-  //fill(255 , 0 , 0);
+  rect(0 , height-30 , 100 , 10);
+  fill(0 , 255 , 0);
+  rect(0 , height-30 , 100 - 20, 10);
+  fill(255 , 0 , 0);
   //text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
-  //float base = test1.getDamage();
-  //Gear gear1 = new Gear(0, 0, 0); //base gear with no added stats
-  ////key 1 is damage key 2 is resistance key 3 is balanced//
-  //if (keyboardInput.isPressed(Controller.P1)) {
-  //  gear1 = new Gear(100 , .2 , .05);//damage heavy gear
-  //  noLoop();
-  //}
-  //if (keyboardInput.isPressed(Controller.P2)) {
-  //  gear1 = new Gear(300 , .05 , .2);//resistance heavy gear
-  //  noLoop();
-  //}
-  //if (keyboardInput.isPressed(Controller.P3)) {
-  //  gear1 = new Gear(200 , .1 , .1);//balanced gear
-  //  noLoop();
-  //} 
-  //text(""+gear1.getDamage(), width/2, height/2);
-  //Player player1 = new Life(gear1);
-  //text(""+player1.getDamage(), width/2+100, height/2);
-  //loop();
-  //Gear gear2 = new Gear(0, 0, 0);
-  //if(moves == 1){
-  //  //key 1 is damage key 2 is resistance key 3 is balanced//
-  //  if (keyboardInput.isPressed(Controller.P4)) {
-  //    gear2 = new Gear(100 , .2 , .05);//damage heavy gear
-  //    noLoop();
-  //  }
-  //  if (keyboardInput.isPressed(Controller.P5)) {
-  //    gear2 = new Gear(300 , .05 , .2);//resistance heavy gear
-  //    noLoop();
-  //  }
-  //  if (keyboardInput.isPressed(Controller.P6)) {
-  //    gear2 = new Gear(200 , .1 , .1);//balanced gear
-  //    noLoop();
-  //  } 
-  //}
   
   if(gearFlag1 && keyPressed){
     gear1 = assignGear();
     gearFlag1 = false;
+    gearFlag2 = true;
+    countdown += 120;
   }
-  text(""+gear1.getDamage(), width/2, height/2+100);
-  //Player player2 = new Life(gear2);
-  //text(""+player2.getDamage(), width/2+100, height/2+100);
+  
+  if(gearFlag2 && keyPressed && countdown == 0){
+    gear2 = assignGear();
+    gearFlag2 = false;
+  }
+  
+  text(""+gear1.getDamage(), width/2, height/2);
+  text(""+gear2.getDamage(), width/2, height/2+100);
+
 }
 
 public Gear assignGear(){
@@ -88,7 +66,6 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
-  moves++;
 }
 
 void keyReleased() {
