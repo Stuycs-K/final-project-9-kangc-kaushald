@@ -3,6 +3,9 @@
   boolean gearFlag1 = true;
   boolean gearFlag2 = false;
   int countdown;
+  boolean createPlayer = false;
+  Player player1 = new Life(gear1);
+  Player player2 = new Life(gear2);
 
 void setup(){
   keyboardInput = new Controller();
@@ -39,16 +42,25 @@ void draw(){
   if(gearFlag2 && keyPressed && countdown == 0){
     gear2 = assignGear();
     gearFlag2 = false;
+    createPlayer = true;
   }
   
   text(""+gear1.getDamage(), width/2, height/2);
   text(""+gear2.getDamage(), width/2, height/2+100);
-
+  
+  if(createPlayer && !gearFlag1 && !gearFlag2){
+    player1 = new Life(gear1);
+    player2 = new Life(gear2);
+  }
+  
+  text(""+player1.getDamage(), width/2+100, height/2);
+  text(""+player2.getDamage(), width/2+100, height/2+100);
+  
+  
 }
 
 public Gear assignGear(){
   Gear gear = new Gear(0, 0, 0); //base gear with no added stats
-  //key 1 is damage key 2 is resistance key 3 is balanced//
   if (keyboardInput.isPressed(Controller.P1)) {
     gear = new Gear(100 , .2 , .05);//damage heavy gear
   }
