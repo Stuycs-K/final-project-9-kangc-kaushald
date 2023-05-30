@@ -8,6 +8,7 @@
   Player player2 = new Life(gear2);
   boolean turn1 = true;
   Card imp = new Imp();
+  boolean play = false;
 
 void setup(){
   keyboardInput = new Controller();
@@ -50,9 +51,15 @@ void draw(){
   text(""+gear1.getHealth(), width/2, height/2);
   text(""+gear2.getHealth(), width/2, height/2+100);
   
-  if(createPlayer && !gearFlag1 && !gearFlag2){
+  if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
     player1 = new Life(gear1);
     player2 = new Life(gear2);
+    play = true;
+  }
+  
+  if(mousePressed == true) {
+    attack(player1, imp);
+    countdown += 120;
   }
   
   text(""+player1.getHealth(), width/2+100, height/2);
@@ -60,9 +67,9 @@ void draw(){
 
 }
 
-void mouseClicked(){
-  attack(player1, imp);
-}
+//void mouseClicked(){
+//  attack(player1, imp);
+//}
 
 public Gear assignGear(){
   Gear gear = new Gear(0, 0, 0); //base gear with no added stats
