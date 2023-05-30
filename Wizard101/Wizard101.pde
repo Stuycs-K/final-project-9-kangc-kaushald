@@ -55,7 +55,7 @@ void draw(){
   if(gearFlag2 && statusFlag2){
     text("Player 2 should select gear" , 100 , 100); 
     fill(0);
-    statusFlag1 = false;
+    statusFlag1 = true;
   }
   
   text(""+gear1.getHealth(), width/2, height/2);
