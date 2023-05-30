@@ -2,6 +2,8 @@
   Gear gear2 = new Gear(0, 0, 0);
   boolean gearFlag1 = true;
   boolean gearFlag2 = false;
+  boolean statusFlag1 = true;
+  boolean statusFlag2 = true;
   int countdown;
   boolean createPlayer = false;
   Player player1 = new Life(gear1);
@@ -45,8 +47,15 @@ void draw(){
     gear2 = assignGear();
     gearFlag2 = false;
     createPlayer = true;
-    text("Player 1 selected a gear" , 100 , 100);
-    delay(1000);
+  }
+  if(!gearFlag2 && statusFlag1){
+    text("Player 1 should select gear" , 100 , 100); 
+    fill(0);
+  }
+  if(gearFlag2 && statusFlag2){
+    text("Player 2 should select gear" , 100 , 100); 
+    fill(0);
+    statusFlag1 = false;
   }
   
   text(""+gear1.getHealth(), width/2, height/2);
