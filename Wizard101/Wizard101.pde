@@ -45,6 +45,8 @@ void draw(){
     gear2 = assignGear();
     gearFlag2 = false;
     createPlayer = true;
+    text("Player 1 selected a gear" , 100 , 100);
+    delay(1000);
   }
   
   text(""+gear1.getHealth(), width/2, height/2);
