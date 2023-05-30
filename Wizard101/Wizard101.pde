@@ -10,6 +10,7 @@
   Player player2 = new Life(gear2);
   boolean turn1 = true;
   Card imp = new Imp();
+  boolean play = false;
 
 void setup(){
   keyboardInput = new Controller();
@@ -35,45 +36,51 @@ void draw(){
   fill(255 , 0 , 0);
   //text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
-  
-  if(gearFlag1 && keyPressed){
-    gear1 = assignGear();
-    gearFlag1 = false;
-    gearFlag2 = true;
+  if(!play){
+    if(gearFlag1 && keyPressed){
+      gear1 = assignGear();
+      gearFlag1 = false;
+      gearFlag2 = true;
+      countdown += 120;
+    }
+    
+    if(gearFlag2 && keyPressed && countdown == 0){
+      gear2 = assignGear();
+      gearFlag2 = false;
+      createPlayer = true;
+    }
+    
+    if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
+      player1 = new Life(gear1);
+      player2 = new Life(gear2);
+      play = true;
+    }
+    
+    if(!gearFlag2 && statusFlag1){
+      text("Player 1 should select gear" , 100 , 100); 
+      fill(0);
+    }
+    if(gearFlag2 && statusFlag2){
+      text("Player 2 should select gear" , 100 , 100); 
+      fill(0);
+      statusFlag1 = true;
+    }
+  } else {
+      
+  if(mousePressed == true) {
+    attack(player1, imp);
     countdown += 120;
-  }
-  
-  if(gearFlag2 && keyPressed && countdown == 0){
-    gear2 = assignGear();
-    gearFlag2 = false;
-    createPlayer = true;
-  }
-  if(!gearFlag2 && statusFlag1){
-    text("Player 1 should select gear" , 100 , 100); 
-    fill(0);
-  }
-  if(gearFlag2 && statusFlag2){
-    text("Player 2 should select gear" , 100 , 100); 
-    fill(0);
-    statusFlag1 = true;
-  }
-  
-  text(""+gear1.getHealth(), width/2, height/2);
-  text(""+gear2.getHealth(), width/2, height/2+100);
-  
-  if(createPlayer && !gearFlag1 && !gearFlag2){
-    player1 = new Life(gear1);
-    player2 = new Life(gear2);
   }
   
   text(""+player1.getHealth(), width/2+100, height/2);
   text(""+player2.getHealth(), width/2+100, height/2+100);
-
+  
+  }
 }
 
-void mouseClicked(){
-  attack(player1, imp);
-}
+//void mouseClicked(){
+//  attack(player1, imp);
+//}
 
 public Gear assignGear(){
   Gear gear = new Gear(0, 0, 0); //base gear with no added stats
