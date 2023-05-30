@@ -52,3 +52,12 @@ info
 //move instance variables from School to Player because the parent class should have all of the instance variables
 //edited constructors in Player, School, and SchoolTypes to take in a piece of Gear and sets stats based off it
 //looking into how to create a turn based game
+
+### date 5/27/23 ### date 5/28/23 ### date 5/29/23
+info
+//successfully created two different pieces of gear based on user input
+//added methods assignGear() and attack(Player, Card) to make code cleaner
+//added flags for creating Gear and Player objects only once
+//added a countdown variable to add the delay of button pressed
+//added a mouseClicked() method that uses the attack method and does damage
+//successfully created two different Players that can attack each other
