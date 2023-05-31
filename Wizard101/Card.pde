@@ -1,6 +1,7 @@
 public class Card {
   int damage;
   int pips;
+  String name;
   Card(int damage, int pips){
     this.damage = damage;
     this.pips = pips;
@@ -10,5 +11,8 @@ public class Card {
   }
   public int pips() {
     return pips;
+  }
+  public String getName() {
+    return name;
   }
 }
