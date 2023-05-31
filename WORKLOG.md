@@ -61,3 +61,12 @@ info
 //added a countdown variable to add the delay of button pressed
 //added a mouseClicked() method that uses the attack method and does damage
 //successfully created two different Players that can attack each other
+
+### date 5/30/23
+info
+//changed the mouseClicked() action to mousePressed so it could be run every time inside of draw
+//added a play flag that turns on when Player and Gear setup is done
+//added cards of tier 2-6 with updated damage
+//set the value of deck equal to a new method i wrote createDeck
+//imported java.util.* to use features like Collections to shuffle the createDeck
+//added accessor and mutator methods to Player that will be needed for turn based gameplay
