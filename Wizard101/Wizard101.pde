@@ -29,14 +29,8 @@ void draw(){
   }
   
   background(255);
-  //healthbar setup//
-  //text(""+test.getHealth() , 20 , 20);
-  rect(0 , height-30 , 100 , 10);
-  fill(0 , 255 , 0);
-  rect(0 , height-30 , 100 - 20, 10);
-  fill(255 , 0 , 0);
-  //text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
+  
   if(!play){
     if(gearFlag1 && keyPressed){
       gear1 = assignGear();
