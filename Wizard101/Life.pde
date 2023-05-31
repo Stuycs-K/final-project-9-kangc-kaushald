@@ -27,6 +27,7 @@ public class Life extends School{
     for(int x = 0; x < 1; x++){
       newDeck.add(new Centaur());
     }
+    Collections.shuffle(newDeck);
     return newDeck;
   }
   
