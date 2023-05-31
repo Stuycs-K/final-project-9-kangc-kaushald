@@ -98,10 +98,13 @@ void draw(){
     }
   } else {
       
-  if(keyboardInput.isPressed(Controller.P1) && clickFlag && countdown == 0) {
-    attack(player1, player2.getCard(1));
-    countdown += 120;
-    clickFlag = false;
+  if(clickFlag) {
+    displayCard(player2.showCard(1));
+    if(keyboardInput.isPressed(Controller.P1) && countdown == 0){
+      attack(player1, player2.getCard(1));
+      countdown += 120;
+      clickFlag = false;
+    }
   }
   if(keyboardInput.isPressed(Controller.P1) && !clickFlag && countdown == 0) {
     attack(player2, player1.getCard(1));
