@@ -42,6 +42,14 @@ public class Player{
     resistance = newResistance;
   }
   
+  public void addPip(){
+    pips += 1;
+  }
+  
+    public void removePip(){
+    pips -= 1;
+  }
+  
 public String healthbar(int current , int health){
   String result = "";
   result += "" + current + "/" + health;
