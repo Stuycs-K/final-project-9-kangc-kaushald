@@ -141,7 +141,13 @@ public Gear assignGear(){
 void attack(Player player, Card card){
   player.setHealth(player.getHealth() - card.getDamage());
 }
-  
+
+void displayCard(Card card){
+      //text(Card , 100 , 100); 
+      text(card.getDamage() , 350 , 200);
+      text(card.pips() , 350 , 300);
+      fill(0);
+}
 
 Controller keyboardInput;
 
