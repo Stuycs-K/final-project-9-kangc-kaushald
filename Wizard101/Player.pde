@@ -30,6 +30,10 @@ public class Player{
     return resistance;
   }
   
+  public Card getCard() {
+    return deck.get(0);
+  }
+  
   public void setHealth(int newHealth){
     health = newHealth;
   }
@@ -40,6 +44,14 @@ public class Player{
   
   public void setResistance(float newResistance){
     resistance = newResistance;
+  }
+  
+  public void addPip(){
+    pips += 1;
+  }
+  
+    public void removePip(){
+    pips -= 1;
   }
   
 public String healthbar(int current , int health){

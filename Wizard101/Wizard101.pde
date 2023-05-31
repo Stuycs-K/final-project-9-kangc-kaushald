@@ -1,3 +1,4 @@
+  import java.util.*;
   Gear gear1 = new Gear(0, 0, 0);
   Gear gear2 = new Gear(0, 0, 0);
   boolean gearFlag1 = true;
@@ -9,7 +10,6 @@
   Player player1 = new Life(gear1);
   Player player2 = new Life(gear2);
   boolean turn1 = true;
-  Card imp = new Imp();
   boolean play = false;
 
 void setup(){
