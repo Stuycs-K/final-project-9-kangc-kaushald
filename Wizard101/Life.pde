@@ -13,9 +13,12 @@ public class Life extends School{
     health = 1000 + gear.getHealth();
     damage = 1.05 + gear.getDamage();
     resistance = 1.05 + gear.getResistance();
-    
+    deck = createDeck();
   }
   
-
+  public ArrayList<Card> createDeck(){
+    ArrayList<Card> newDeck = new ArrayList<Card>();
+    return newDeck;
+  }
   
 }
