@@ -9,7 +9,6 @@
   Player player1 = new Life(gear1);
   Player player2 = new Life(gear2);
   boolean turn1 = true;
-  Card imp = new Imp();
   boolean play = false;
 
 void setup(){
