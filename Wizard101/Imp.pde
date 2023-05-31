@@ -1,5 +1,5 @@
 public class Imp extends Card{
   public Imp() {
-    super(100, 1);
+    super(95, 1);
   }
 }
