@@ -57,19 +57,19 @@ void draw(){
       text("100" , 375 , 250);
       text("Damage" , 350 , 300);
       text(".2" , 375 , 350);
-       text("Resistance" , 350 , 400);
+      text("Resistance" , 350 , 400);
       text(".05" , 375 , 450);
        text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
-       text("Resistance" , 500 , 400);
+      text("Resistance" , 500 , 400);
       text(".2" , 525 , 450);
-       text("Health" , 650 , 200);
+      text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
-       text("Resistance" , 650 , 400);
+      text("Resistance" , 650 , 400);
       text(".1" , 675 , 450);
       fill(0);
     }
@@ -79,32 +79,32 @@ void draw(){
       text("100" , 375 , 250);
       text("Damage" , 350 , 300);
       text(".2" , 375 , 350);
-       text("Resistance" , 350 , 400);
+      text("Resistance" , 350 , 400);
       text(".05" , 375 , 450);
-       text("Health" , 500 , 200);
+      text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
-       text("Resistance" , 500 , 400);
+      text("Resistance" , 500 , 400);
       text(".2" , 525 , 450);
-       text("Health" , 650 , 200);
+      text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
-       text("Resistance" , 650 , 400);
+      text("Resistance" , 650 , 400);
       text(".1" , 675 , 450);
       fill(0);
       statusFlag1 = true;
     }
   } else {
       
-  if(clickFlag) {
-    displayCard(player2.showCard(1));
-    if(keyboardInput.isPressed(Controller.P1) && countdown == 0){
+  if(clickFlag && keyboardInput.isPressed(Controller.P1) && countdown == 0) {
+    //displayCard(player2.showCard(1));
+    //if(keyboardInput.isPressed(Controller.P1) && countdown == 0){
       attack(player1, player2.getCard(1));
       countdown += 120;
       clickFlag = false;
-    }
+    //}
   }
   if(keyboardInput.isPressed(Controller.P1) && !clickFlag && countdown == 0) {
     attack(player2, player1.getCard(1));
@@ -112,13 +112,13 @@ void draw(){
     clickFlag = true;
   }
   
-  text(""+player1.getHealth(), width/2+100, height/2);
-  text(""+player1.getDamage(), width/2+200, height/2);
-  text(""+player1.getResistance(), width/2+300, height/2);
+  text("1"+player1.getHealth(), width/2+100, height/2);
+  text("2"+player1.getDamage(), width/2+200, height/2);
+  text("3"+player1.getResistance(), width/2+300, height/2);
   
-   text(""+player2.getHealth(), width/2+100, height/2+100);
-  text(""+player2.getDamage(), width/2+300, height/2+100);
-  text(""+player2.getResistance(), width/2+200, height/2+100);
+   text("4"+player2.getHealth(), width/2+100, height/2+100);
+  text("5"+player2.getDamage(), width/2+200, height/2+100);
+  text("6"+player2.getResistance(), width/2+300, height/2+100);
   
   }
 }
@@ -143,6 +143,29 @@ public Gear assignGear(){
 
 void attack(Player player, Card card){
   player.setHealth(player.getHealth() - card.getDamage());
+}
+
+void displayGear(){
+      text("Player 2 should select gear" , 100 , 100); 
+      text("Health" , 350 , 200);
+      text("100" , 375 , 250);
+      text("Damage" , 350 , 300);
+      text(".2" , 375 , 350);
+      text("Resistance" , 350 , 400);
+      text(".05" , 375 , 450);
+      text("Health" , 500 , 200);
+      text("300" , 525 , 250);
+      text("Damage" , 500 , 300);
+      text(".05" , 525 , 350);
+      text("Resistance" , 500 , 400);
+      text(".2" , 525 , 450);
+      text("Health" , 650 , 200);
+      text("200" , 675 , 250);
+      text("Damage" , 650 , 300);
+      text(".1" , 675 , 350);
+      text("Resistance" , 650 , 400);
+      text(".1" , 675 , 450);
+      fill(0);
 }
 
 void displayCard(Card card){
