@@ -30,6 +30,10 @@ public class Player{
     return resistance;
   }
   
+  public Card showCard(int index) {
+    return deck.get(index);
+  }
+  
   public Card getCard(int index) {
     return deck.remove(index);
   }
