@@ -1,10 +1,4 @@
 Card imp = new Imp();
-Card leprechaun = new Leprechaun();
-Card naturesWrath = new NaturesWrath();
-Card seraph = new Seraph();
-Card earthWalker = new EarthWalker();
-Card centaur = new Centaur();
-
 public class Life extends School{
   public Life(Gear gear){
     //gear.balanced();
@@ -18,6 +12,9 @@ public class Life extends School{
   
   public ArrayList<Card> createDeck(){
     ArrayList<Card> newDeck = new ArrayList<Card>();
+    for(int x = 0; x < 5; x++){
+      newDeck.add(new Imp());
+    }
     return newDeck;
   }
   
