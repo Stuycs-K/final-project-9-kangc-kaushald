@@ -30,6 +30,10 @@ public class Player{
     return resistance;
   }
   
+  public int deckSize() {
+    return deck.size();
+  }
+  
   public Card showCard(int index) {
     return deck.get(index);
   }
