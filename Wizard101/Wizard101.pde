@@ -131,21 +131,36 @@ void displayGear(){
       text("100" , 375 , 250);
       text("Damage" , 350 , 300);
       text(".2" , 375 , 350);
-      text("Resistance" , 350 , 400);
+      text("Resistance" , 325 , 400);
       text(".05" , 375 , 450);
+      text("D" , 375 , 500);
       text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
-      text("Resistance" , 500 , 400);
+      text("Resistance" , 475 , 400);
       text(".2" , 525 , 450);
+      text("R" , 525 , 500);
       text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
-      text("Resistance" , 650 , 400);
+      text("Resistance" , 625 , 400);
       text(".1" , 675 , 450);
+      text("B" , 675 , 500);
       fill(0);
+      line(325 , 150 , 475 , 150);
+      line(325 , 150 , 325 , 500);
+      line(325 , 500 , 475 , 500);
+      line(475 , 150 , 475 , 500);
+      line(475 , 150 , 625 , 150);
+      line(475 , 150 , 475 , 500);
+      line(475 , 500 , 625 , 500);
+      line(625 , 150 , 625 , 500);
+      line(625 , 150 , 775 , 150);
+      line(625 , 150 , 625 , 500);
+      line(625 , 500 , 775 , 500);
+      line(775 , 150 , 775 , 500);
 }
 
 void displayCard(Card card){
@@ -194,11 +209,11 @@ class Controller {
   }
 
   void press(int code) {
-    if(code == '1')
+    if(code == 'd')
       inputs[P1] = true;
-    if(code == '2')
+    if(code == 'r')
       inputs[P2] = true;
-    if(code == '3')
+    if(code == 'e')
       inputs[P3] = true;
     if(code == '4')
       inputs[P4] = true;
