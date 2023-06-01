@@ -67,13 +67,13 @@ void draw(){
     if(clickFlag && keyPressed && countdown == 0) {
       //displayCard(player2.showCard(1));
       //if(keyboardInput.isPressed(Controller.P1) && countdown == 0){
-        attack(player1, player2.getCard(1));
+        attack(player1, player2);
         countdown += 120;
         clickFlag = false;
       //}
     }
     if(keyPressed && !clickFlag && countdown == 0) {
-      attack(player2, player1.getCard(1));
+      attack(player2, player1);
       countdown += 120;
       clickFlag = true;
     }
@@ -106,19 +106,19 @@ public Gear assignGear(){
 void attack(Player player1, Player player2){
   int i = 0;
   if (keyboardInput.isPressed(Controller.P1)) {
-    i = 1;
+    i = 0;
   }
   if (keyboardInput.isPressed(Controller.P2)) {
-    i = 2;
+    i = 1;
   }
   if (keyboardInput.isPressed(Controller.P3)) {
-    i = 3;
+    i = 2;
   } 
   if (keyboardInput.isPressed(Controller.P4)) {
-    i = 4;
+    i = 3;
   }
   if (keyboardInput.isPressed(Controller.P5)) {
-    i = 5;
+    i = 4;
   }
   Card spell = player2.getCard(i);
   player1.setHealth(player1.getHealth() - spell.getDamage());
@@ -151,6 +151,14 @@ void displayCard(Card card){
       text(card.getDamage() , 350 , 200);
       text(card.pips() , 350 , 300);
       fill(0);
+}
+
+void displayCards(Player player) {
+  for(int x = 0; x < 5; x++){
+    Card current = player.getCard(x);
+    text(current.getDamage() , width/6 * (x+1), height/2);
+    text(current.pips() , width/6 * (x+1) , height/2);
+  }
 }
 
 Controller keyboardInput;
