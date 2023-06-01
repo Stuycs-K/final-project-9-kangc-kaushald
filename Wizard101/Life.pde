@@ -12,19 +12,22 @@ public class Life extends School{
   
   public ArrayList<Card> createDeck(){
     ArrayList<Card> newDeck = new ArrayList<Card>();
-    for(int x = 0; x < 5; x++){
+    for(int x = 0; x < 60; x++){
       newDeck.add(new Imp());
     }
-    for(int x = 0; x < 4; x++){
+    for(int x = 0; x < 50; x++){
       newDeck.add(new Leprechaun());
     }
-    for(int x = 0; x < 3; x++){
+    for(int x = 0; x < 40; x++){
       newDeck.add(new NaturesWrath());
     }
-    for(int x = 0; x < 2; x++){
+    for(int x = 0; x < 20; x++){
       newDeck.add(new EarthWalker());
     }
-    for(int x = 0; x < 1; x++){
+    for(int x = 0; x < 30; x++){
+      newDeck.add(new Seraph());
+    }  
+    for(int x = 0; x < 10; x++){
       newDeck.add(new Centaur());
     }
     Collections.shuffle(newDeck);
