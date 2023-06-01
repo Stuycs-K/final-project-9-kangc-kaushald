@@ -13,6 +13,9 @@
   Player player2 = new Life(gear2);
   boolean turn1 = true;
   boolean play = false;
+  boolean done = false;
+  boolean done1 = false;
+  boolean done2 = false;
 
 void setup(){
   keyboardInput = new Controller();
@@ -33,71 +36,102 @@ void draw(){
     countdown1 --;
   }
   
+  if(player1.getHealth() < 0 || player2.getHealth() < 0) {
+    done = true;
+  }
+  
+  if(player1.deckSize() < 6) {
+    done1 = true;
+  }
+  
+  if(player2.deckSize() < 6) {
+    done2 = true;
+  }  
+  
   background(255);
   fill(0);
   
-  if(!play){
-    //message for Player 1 to select gear
-    if(!gearFlag2 && statusFlag1){
-      text("Player 1 select gear" , 100 , 100); 
-      displayGear();
-    }
-    //Player 1 selects gear
-    if(gearFlag1 && keyPressed){
-      gear1 = assignGear();
-      gearFlag1 = false;
-      gearFlag2 = true;
-      countdown += 120;
-    }
-    //message for Player 2 to select gear
-    if(gearFlag2 && statusFlag2){
-      text("Player 2 select gear" , 100 , 100); 
-      displayGear();
-      statusFlag1 = true;
-    }
-    //Player 2 selects gear
-    if(gearFlag2 && keyPressed && countdown == 0){
-      gear2 = assignGear();
-      gearFlag2 = false;
-      createPlayer = true;
-    }
-    //create the players with gear they chose
-    if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-      player1 = new Life(gear1);
-      player2 = new Life(gear2);
-      play = true;
-      countdown += 120;
+  if(!done && !done1 && !done2) {
+    if(!play){
+      //message for Player 1 to select gear
+      if(!gearFlag2 && statusFlag1){
+        text("Player 1 select gear" , 100 , 100); 
+        displayGear();
+      }
+      //Player 1 selects gear
+      if(gearFlag1 && keyPressed){
+        gear1 = assignGear();
+        gearFlag1 = false;
+        gearFlag2 = true;
+        countdown += 120;
+      }
+      //message for Player 2 to select gear
+      if(gearFlag2 && statusFlag2){
+        text("Player 2 select gear" , 100 , 100); 
+        displayGear();
+        statusFlag1 = true;
+      }
+      //Player 2 selects gear
+      if(gearFlag2 && keyPressed && countdown == 0){
+        gear2 = assignGear();
+        gearFlag2 = false;
+        createPlayer = true;
+      }
+      //create the players with gear they chose
+      if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
+        player1 = new Life(gear1);
+        player2 = new Life(gear2);
+        play = true;
+        countdown += 120;
+      }
+    } else {
+        
+      if(!clickFlag) {
+         displayCards(player2);
+         text("Player 2's turn", width/2, height/2 - 150);
+         text("Pips: " + player2.getPips(), width/2, height/2 - 100);
+         text("Press P to pass", width/2, height/2 + 150);
+         if(countdown == 0){
+           attack(player1, player2);
+         }
+      }
+      if(clickFlag) {
+        text("Player 1's turn", width/2, height/2 - 150);
+        text("Pips: " + player1.getPips(), width/2, height/2 - 100);
+        text("Press P to pass", width/2, height/2 + 150);
+        displayCards(player1);
+        if(countdown == 0){
+          attack(player2, player1);
+        }
+      }
+      
+      text("Player 1 Health: "+player1.getHealth(), 100, 100);
+      text("Player 1 Damage: "+player1.getDamage(), 100, 150);
+      text("Player 1 Resistance: "+player1.getResistance(), 100, 200);
+      
+      text("Player 2 Health: "+player2.getHealth(), width - 300, height - 200);
+      text("Player 2 Damage: "+player2.getDamage(), width - 300, height - 150);
+      text("Player 2 Resistance: "+player2.getResistance(), width - 300, height - 100);  
     }
   } else {
-      
-    if(!clickFlag) {
-       displayCards(player2);
-       text("Player 2's turn", width/2, height/2 - 150);
-       text("Pips: " + player2.getPips(), width/2, height/2 - 100);
-       text("Press P to pass", width/2, height/2 + 150);
-       if(countdown == 0){
-         attack(player1, player2);
-       }
-       
-    }
-    if(clickFlag) {
-      text("Player 1's turn", width/2, height/2 - 150);
-      text("Pips: " + player1.getPips(), width/2, height/2 - 100);
-      text("Press P to pass", width/2, height/2 + 150);
-      displayCards(player1);
-      if(countdown == 0){
-        attack(player2, player1);
+    text("Game Over", width/2, height/2);
+    if(done){
+      if(player1.getHealth() < player2.getHealth()) {
+        text("Player 2 Wins", width/2, height/2 - 50);
+        text("Player 1 has no health", width/2, height/2 + 50);
+      } else {
+        text("Player 1 Wins", width/2, height/2 - 50);
+        text("Player 2 has no health", width/2, height/2 + 50);
       }
     }
-    
-    text("Player 1 Health: "+player1.getHealth(), 100, 100);
-    text("Player 1 Damage: "+player1.getDamage(), 100, 150);
-    text("Player 1 Resistance: "+player1.getResistance(), 100, 200);
-    
-    text("Player 2 Health: "+player2.getHealth(), width - 300, height - 200);
-    text("Player 2 Damage: "+player2.getDamage(), width - 300, height - 150);
-    text("Player 2 Resistance: "+player2.getResistance(), width - 300, height - 100);
-  
+    if(done1){
+      text("Player 2 Wins", width/2, height/2 - 50);
+      text("Player 1 ran out of cards", width/2, height/2 + 50);
+    }
+    if(done2){
+      text("Player 1 Wins", width/2, height/2 - 50);
+      text("Player 2 ran out of cards", width/2, height/2 + 50);
+    }
   }
 }
 
