@@ -7,6 +7,7 @@
   boolean statusFlag2 = true;
   boolean clickFlag = true;
   int countdown;
+  int countdown1;
   boolean createPlayer = false;
   Player player1 = new Life(gear1);
   Player player2 = new Life(gear2);
@@ -28,40 +29,45 @@ void draw(){
     countdown --;
   }
   
+  if(countdown1 > 0){
+    countdown1 --;
+  }
+  
   background(255);
   fill(0);
   
   if(!play){
+    //message for Player 1 to select gear
+    if(!gearFlag2 && statusFlag1){
+      text("Player 1 select gear" , 100 , 100); 
+      displayGear();
+    }
+    //Player 1 selects gear
     if(gearFlag1 && keyPressed){
       gear1 = assignGear();
       gearFlag1 = false;
       gearFlag2 = true;
       countdown += 120;
     }
-    
-    if(gearFlag2 && keyPressed && countdown == 0){
-      gear2 = assignGear();
-      gearFlag2 = false;
-      createPlayer = true;
-    }
-    
-    if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-      player1 = new Life(gear1);
-      player2 = new Life(gear2);
-      play = true;
-    }
-    
-    if(!gearFlag2 && statusFlag1){
-      text("Player 1 select gear" , 100 , 100); 
-      displayGear();
-    }
-    
+    //message for Player 2 to select gear
     if(gearFlag2 && statusFlag2){
       text("Player 2 select gear" , 100 , 100); 
       displayGear();
       statusFlag1 = true;
     }
-    
+    //Player 2 selects gear
+    if(gearFlag2 && keyPressed && countdown == 0){
+      gear2 = assignGear();
+      gearFlag2 = false;
+      createPlayer = true;
+    }
+    //create the players with gear they chose
+    if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
+      player1 = new Life(gear1);
+      player2 = new Life(gear2);
+      play = true;
+      countdown += 120;
+    }
   } else {
       
     if(clickFlag) {
@@ -69,10 +75,12 @@ void draw(){
        if(countdown == 0){
          attack(player1, player2);
          clickFlag = false;
+         countdown += 120;
        }
+       
     }
     if(!clickFlag) {
-      displayCards(player2);
+      //displayCards(player2);
       if(countdown == 0){
         attack(player2, player1);
         clickFlag = true;
@@ -106,24 +114,26 @@ public Gear assignGear(){
 
 void attack(Player player1, Player player2){
   int i = 0;
-  if (keyboardInput.isPressed(Controller.P1)) {
+  if (keyboardInput.isPressed(Controller.P4)) {
     i = 0;
   }
-  if (keyboardInput.isPressed(Controller.P2)) {
+  if (keyboardInput.isPressed(Controller.P5)) {
     i = 1;
   }
-  if (keyboardInput.isPressed(Controller.P3)) {
+  if (keyboardInput.isPressed(Controller.P6)) {
     i = 2;
   } 
-  if (keyboardInput.isPressed(Controller.P4)) {
+  if (keyboardInput.isPressed(Controller.P7)) {
     i = 3;
   }
-  if (keyboardInput.isPressed(Controller.P5)) {
+  if (keyboardInput.isPressed(Controller.P8)) {
     i = 4;
   }
-  Card spell = player2.showCard(i);
-  player1.setHealth(player1.getHealth() - spell.getDamage());
-  countdown += 120;
+  if(keyPressed) {
+    Card spell = player2.showCard(i);
+    player1.setHealth(player1.getHealth() - spell.getDamage());
+    //countdown += 120;
+  }
 }
 
 void displayGear(){
@@ -163,13 +173,6 @@ void displayGear(){
       line(775 , 150 , 775 , 500);
 }
 
-void displayCard(Card card){
-      //text(Card , 100 , 100); 
-      text(card.getDamage() , 350 , 200);
-      text(card.pips() , 350 , 300);
-      fill(0);
-}
-
 void displayCards(Player player) {
   for(int x = 0; x < 5; x++){
     Card current = player.showCard(x);
@@ -177,10 +180,6 @@ void displayCards(Player player) {
     text(current.pips() , width/6 * (x+1) , height/2+50);
   }
 }
-
-
-
-
 
 
 //Keyboard Setup
