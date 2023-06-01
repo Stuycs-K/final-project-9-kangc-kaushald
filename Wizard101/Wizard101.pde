@@ -17,7 +17,7 @@
 void setup(){
   keyboardInput = new Controller();
   size(1080 , 720);
-  textSize(32);
+  textSize(24);
   countdown = 0;
 }
 
@@ -71,29 +71,26 @@ void draw(){
   } else {
       
     if(clickFlag) {
-       displayCards(player1);
+       displayCards(player2);
        if(countdown == 0){
          attack(player1, player2);
-         clickFlag = false;
-         countdown1 += 120;
        }
        
     }
     if(!clickFlag) {
-      //displayCards(player2);
+      displayCards(player1);
       if(countdown == 0){
         attack(player2, player1);
-        clickFlag = true;
       }
     }
     
-    text(""+player1.getHealth(), width/2+100, height/2+100);
-    text(""+player1.getDamage(), width/2+200, height/2+100);
-    text(""+player1.getResistance(), width/2+300, height/2+100);
+    text("Player 1 Health: "+player1.getHealth(), 100, 100);
+    text("Player 1 Damage: "+player1.getDamage(), 100, 150);
+    text("Player 1 Resistance: "+player1.getResistance(), 100, 200);
     
-    text(""+player2.getHealth(), width/2+100, height/2+200);
-    text(""+player2.getDamage(), width/2+200, height/2+200);
-    text(""+player2.getResistance(), width/2+300, height/2+200);
+    text("Player 2 Health: "+player2.getHealth(), width - 300, height - 200);
+    text("Player 2 Damage: "+player2.getDamage(), width - 300, height - 150);
+    text("Player 2 Resistance: "+player2.getResistance(), width - 300, height - 100);
   
   }
 }
@@ -137,6 +134,7 @@ void attack(Player player1, Player player2){
   if(keyPressed) {
     Card spell = player2.getCard(i);
     player1.setHealth(player1.getHealth() - spell.getDamage());
+    clickFlag = !clickFlag;
     countdown += 120;
   }
 }
@@ -181,8 +179,9 @@ void displayGear(){
 void displayCards(Player player) {
   for(int x = 0; x < 5; x++){
     Card current = player.showCard(x);
-    text(current.getDamage() , width/6 * (x+1), height/2);
-    text(current.pips() , width/6 * (x+1) , height/2+50);
+    text(current.getName() , width/6 * (x+1), height/2-50);
+    text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
+    text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
   }
 }
 
