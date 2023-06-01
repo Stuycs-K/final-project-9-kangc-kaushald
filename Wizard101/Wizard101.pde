@@ -131,11 +131,15 @@ void attack(Player player1, Player player2){
     i = 4;
   }
   if(keyPressed) {
-    Card spell = player2.getCard(i);
-    player1.setHealth(player1.getHealth() - spell.getDamage());
-    clickFlag = !clickFlag;
-    countdown += 120;
-    player2.addPip();
+    Card spell = player2.showCard(i);
+    if(spell.pips() <= player2.getPips()){
+      spell = player2.getCard(i);
+      player1.setHealth(player1.getHealth() - spell.getDamage());
+      clickFlag = !clickFlag;
+      countdown += 120;
+      player2.setPips(player2.getPips() - spell.pips());
+      player2.addPip();
+    }
   }
 }
 
