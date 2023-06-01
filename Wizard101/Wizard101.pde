@@ -130,7 +130,12 @@ void attack(Player player1, Player player2){
   if (keyboardInput.isPressed(Controller.P8)) {
     i = 4;
   }
-  if(keyPressed) {
+  if (keyboardInput.isPressed(Controller.P9)) {
+      clickFlag = !clickFlag;
+      countdown += 120;
+      player2.addPip();
+  }
+  if(keyPressed && !keyboardInput.isPressed(Controller.P9)) {
     Card spell = player2.showCard(i);
     if(spell.pips() <= player2.getPips()){
       spell = player2.getCard(i);
