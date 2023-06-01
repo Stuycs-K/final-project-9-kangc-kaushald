@@ -70,14 +70,18 @@ void draw(){
     }
   } else {
       
-    if(clickFlag) {
+    if(!clickFlag) {
        displayCards(player2);
+       text("Player 2's turn", width/2, height/2 - 150);
+       text("Pips: " + player2.getPips(), width/2, height/2 - 100);
        if(countdown == 0){
          attack(player1, player2);
        }
        
     }
-    if(!clickFlag) {
+    if(clickFlag) {
+      text("Player 1's turn", width/2, height/2 - 150);
+      text("Pips: " + player1.getPips(), width/2, height/2 - 100);
       displayCards(player1);
       if(countdown == 0){
         attack(player2, player1);
@@ -113,29 +117,25 @@ void attack(Player player1, Player player2){
   int i = 0;
   if (keyboardInput.isPressed(Controller.P4)) {
     i = 0;
-    text("hi", 100, 100);
   }
   if (keyboardInput.isPressed(Controller.P5)) {
     i = 1;
-    text("hi2", 100, 150);
   }
   if (keyboardInput.isPressed(Controller.P6)) {
     i = 2;
-    text("hi3", 100, 200);
   } 
   if (keyboardInput.isPressed(Controller.P7)) {
     i = 3;
-    text("hi4", 100, 250);
   }
   if (keyboardInput.isPressed(Controller.P8)) {
     i = 4;
-    text("hi5", 100, 300);
   }
   if(keyPressed) {
     Card spell = player2.getCard(i);
     player1.setHealth(player1.getHealth() - spell.getDamage());
     clickFlag = !clickFlag;
     countdown += 120;
+    player2.addPip();
   }
 }
 
@@ -146,21 +146,21 @@ void displayGear(){
       text(".2" , 375 , 350);
       text("Resistance" , 325 , 400);
       text(".05" , 375 , 450);
-      text("D", 375, 500);
+      text("Press D", 375, 500);
       text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
       text("Resistance" , 475 , 400);
       text(".2" , 525 , 450);
-      text("R" , 525, 500);
+      text("Press R" , 525, 500);
       text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
       text("Resistance" , 625 , 400);
       text(".1" , 675 , 450);
-      text("B", 675, 500);
+      text("Press E", 675, 500);
       fill(0);
       line(325 , 150 , 475 , 150);
       line(325 , 150 , 325 , 500);
