@@ -1,4 +1,4 @@
-  import java.util.*;
+ import java.util.*;
   Gear gear1 = new Gear(0, 0, 0);
   Gear gear2 = new Gear(0, 0, 0);
   boolean gearFlag1 = true;
@@ -133,21 +133,21 @@ void displayGear(){
       text(".2" , 375 , 350);
       text("Resistance" , 325 , 400);
       text(".05" , 375 , 450);
-      text("D" , 375 , 500);
+      text("D", 375, 500);
       text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
       text("Resistance" , 475 , 400);
       text(".2" , 525 , 450);
-      text("R" , 525 , 500);
+      text("R" , 525, 500);
       text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
       text("Resistance" , 625 , 400);
       text(".1" , 675 , 450);
-      text("B" , 675 , 500);
+      text("B", 675, 500);
       fill(0);
       line(325 , 150 , 475 , 150);
       line(325 , 150 , 325 , 500);
@@ -178,6 +178,12 @@ void displayCards(Player player) {
   }
 }
 
+
+
+
+
+
+//Keyboard Setup
 Controller keyboardInput;
 
 void keyPressed() {
@@ -196,10 +202,12 @@ class Controller {
   static final int P4 = 3;
   static final int P5 = 4;
   static final int P6 = 5;
+  static final int P7 = 5;
+  static final int P8 = 5;
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[6];//2 valid buttons
+    inputs = new boolean[8];//2 valid buttons
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -209,31 +217,39 @@ class Controller {
   }
 
   void press(int code) {
-    if(code == 'd')
+    if(code == 'D')
       inputs[P1] = true;
-    if(code == 'r')
+    if(code == 'R')
       inputs[P2] = true;
-    if(code == 'e')
+    if(code == 'E')
       inputs[P3] = true;
-    if(code == '4')
+    if(code == '1')
       inputs[P4] = true;
-    if(code == '5')
+    if(code == '2')
       inputs[P5] = true;
-    if(code == '6')
+    if(code == '3')
       inputs[P6] = true;
+     if(code == '4')
+      inputs[P7] = true;
+     if(code == '5')
+      inputs[P8] = true;
   }
   void release(int code) {
-     if(code == '1')
+    if(code == 'D')
       inputs[P1] = false;
-    if(code == '2')
+    if(code == 'R')
       inputs[P2] = false;
-    if(code == '3')
+    if(code == 'E')
       inputs[P3] = false;
-    if(code == '4')
+    if(code == '1')
       inputs[P4] = false;
-    if(code == '5')
+    if(code == '2')
       inputs[P5] = false;
-    if(code == '6')
+    if(code == '3')
       inputs[P6] = false;
+    if(code == '4')
+      inputs[P7] = false;
+    if(code == '5')
+      inputs[P8] = false;
   }
 }
