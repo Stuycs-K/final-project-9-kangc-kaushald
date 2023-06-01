@@ -74,6 +74,7 @@ void draw(){
        displayCards(player2);
        text("Player 2's turn", width/2, height/2 - 150);
        text("Pips: " + player2.getPips(), width/2, height/2 - 100);
+       text("Press P to pass", width/2, height/2 + 150);
        if(countdown == 0){
          attack(player1, player2);
        }
@@ -82,6 +83,7 @@ void draw(){
     if(clickFlag) {
       text("Player 1's turn", width/2, height/2 - 150);
       text("Pips: " + player1.getPips(), width/2, height/2 - 100);
+      text("Press P to pass", width/2, height/2 + 150);
       displayCards(player1);
       if(countdown == 0){
         attack(player2, player1);
@@ -139,7 +141,9 @@ void attack(Player player1, Player player2){
     Card spell = player2.showCard(i);
     if(spell.pips() <= player2.getPips()){
       spell = player2.getCard(i);
-      player1.setHealth(player1.getHealth() - spell.getDamage());
+      int damage = (int)(spell.getDamage() * player2.getDamage());
+      damage /= player1.getResistance();
+      player1.setHealth(player1.getHealth() - damage);
       clickFlag = !clickFlag;
       countdown += 120;
       player2.setPips(player2.getPips() - spell.pips());
@@ -153,21 +157,21 @@ void displayGear(){
       text("100" , 375 , 250);
       text("Damage" , 350 , 300);
       text(".2" , 375 , 350);
-      text("Resistance" , 325 , 400);
+      text("Resistance" , 350 , 400);
       text(".05" , 375 , 450);
       text("Press D", 375, 500);
       text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
-      text("Resistance" , 475 , 400);
+      text("Resistance" , 500 , 400);
       text(".2" , 525 , 450);
       text("Press R" , 525, 500);
       text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
-      text("Resistance" , 625 , 400);
+      text("Resistance" , 650 , 400);
       text(".1" , 675 , 450);
       text("Press E", 675, 500);
       fill(0);
@@ -191,6 +195,7 @@ void displayCards(Player player) {
     text(current.getName() , width/6 * (x+1), height/2-50);
     text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
     text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
+    text("Press " + (x+1) , width/6 * (x+1) , height/2+100);
   }
 }
 
