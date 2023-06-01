@@ -1,6 +1,6 @@
 public class Player{
   int health;
-  int pips;
+  int pips = 1;
   float damage;
   float resistance;
   Gear gear;
@@ -48,6 +48,10 @@ public class Player{
   
   public void setResistance(float newResistance){
     resistance = newResistance;
+  }
+  
+  public void setPips(int amount){
+    pips = amount;
   }
   
   public void addPip(){
