@@ -64,27 +64,28 @@ void draw(){
     
   } else {
       
-    if(clickFlag && keyPressed && countdown == 0) {
-      //displayCard(player2.showCard(1));
-      //if(keyboardInput.isPressed(Controller.P1) && countdown == 0){
-        attack(player1, player2);
-        countdown += 120;
-        clickFlag = false;
-      //}
+    if(clickFlag) {
+       displayCards(player1);
+       if(countdown == 0){
+         attack(player1, player2);
+         clickFlag = false;
+       }
     }
-    if(keyPressed && !clickFlag && countdown == 0) {
-      attack(player2, player1);
-      countdown += 120;
-      clickFlag = true;
+    if(!clickFlag) {
+      displayCards(player2);
+      if(countdown == 0){
+        attack(player2, player1);
+        clickFlag = true;
+      }
     }
     
-    text(""+player1.getHealth(), width/2+100, height/2);
-    text(""+player1.getDamage(), width/2+200, height/2);
-    text(""+player1.getResistance(), width/2+300, height/2);
+    text(""+player1.getHealth(), width/2+100, height/2+100);
+    text(""+player1.getDamage(), width/2+200, height/2+100);
+    text(""+player1.getResistance(), width/2+300, height/2+100);
     
-    text(""+player2.getHealth(), width/2+100, height/2+100);
-    text(""+player2.getDamage(), width/2+200, height/2+100);
-    text(""+player2.getResistance(), width/2+300, height/2+100);
+    text(""+player2.getHealth(), width/2+100, height/2+200);
+    text(""+player2.getDamage(), width/2+200, height/2+200);
+    text(""+player2.getResistance(), width/2+300, height/2+200);
   
   }
 }
@@ -120,8 +121,9 @@ void attack(Player player1, Player player2){
   if (keyboardInput.isPressed(Controller.P5)) {
     i = 4;
   }
-  Card spell = player2.getCard(i);
+  Card spell = player2.showCard(i);
   player1.setHealth(player1.getHealth() - spell.getDamage());
+  countdown += 120;
 }
 
 void displayGear(){
@@ -155,9 +157,9 @@ void displayCard(Card card){
 
 void displayCards(Player player) {
   for(int x = 0; x < 5; x++){
-    Card current = player.getCard(x);
+    Card current = player.showCard(x);
     text(current.getDamage() , width/6 * (x+1), height/2);
-    text(current.pips() , width/6 * (x+1) , height/2);
+    text(current.pips() , width/6 * (x+1) , height/2+50);
   }
 }
 
