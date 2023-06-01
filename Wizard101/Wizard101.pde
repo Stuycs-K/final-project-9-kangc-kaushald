@@ -75,7 +75,7 @@ void draw(){
        if(countdown == 0){
          attack(player1, player2);
          clickFlag = false;
-         countdown += 120;
+         countdown1 += 120;
        }
        
     }
@@ -116,23 +116,28 @@ void attack(Player player1, Player player2){
   int i = 0;
   if (keyboardInput.isPressed(Controller.P4)) {
     i = 0;
+    text("hi", 100, 100);
   }
   if (keyboardInput.isPressed(Controller.P5)) {
     i = 1;
+    text("hi2", 100, 150);
   }
   if (keyboardInput.isPressed(Controller.P6)) {
     i = 2;
+    text("hi3", 100, 200);
   } 
   if (keyboardInput.isPressed(Controller.P7)) {
     i = 3;
+    text("hi4", 100, 250);
   }
   if (keyboardInput.isPressed(Controller.P8)) {
     i = 4;
+    text("hi5", 100, 300);
   }
   if(keyPressed) {
-    Card spell = player2.showCard(i);
+    Card spell = player2.getCard(i);
     player1.setHealth(player1.getHealth() - spell.getDamage());
-    //countdown += 120;
+    countdown += 120;
   }
 }
 
@@ -201,8 +206,8 @@ class Controller {
   static final int P4 = 3;
   static final int P5 = 4;
   static final int P6 = 5;
-  static final int P7 = 5;
-  static final int P8 = 5;
+  static final int P7 = 6;
+  static final int P8 = 7;
   boolean [] inputs;
 
   public Controller() {
