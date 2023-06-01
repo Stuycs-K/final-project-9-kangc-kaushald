@@ -30,8 +30,12 @@ public class Player{
     return resistance;
   }
   
-  public Card getCard() {
-    return deck.get(0);
+  public Card showCard(int index) {
+    return deck.get(index);
+  }
+  
+  public Card getCard(int index) {
+    return deck.remove(index);
   }
   
   public void setHealth(int newHealth){

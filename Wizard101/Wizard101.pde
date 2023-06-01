@@ -29,14 +29,8 @@ void draw(){
   }
   
   background(255);
-  //healthbar setup//
-  //text(""+test.getHealth() , 20 , 20);
-  rect(0 , height-30 , 100 , 10);
-  fill(0 , 255 , 0);
-  rect(0 , height-30 , 100 - 20, 10);
-  fill(255 , 0 , 0);
-  //text(test.healthbar(100 , 100) , 30, height-20);
   fill(0);
+  
   if(!play){
     if(gearFlag1 && keyPressed){
       gear1 = assignGear();
@@ -58,77 +52,42 @@ void draw(){
     }
     
     if(!gearFlag2 && statusFlag1){
-      text("Player 1 should select gear" , 100 , 100); 
-      text("Health" , 350 , 200);
-      text("100" , 375 , 250);
-      text("Damage" , 350 , 300);
-      text(".2" , 375 , 350);
-       text("Resistance" , 350 , 400);
-      text(".05" , 375 , 450);
-       text("Health" , 500 , 200);
-      text("300" , 525 , 250);
-      text("Damage" , 500 , 300);
-      text(".05" , 525 , 350);
-       text("Resistance" , 500 , 400);
-      text(".2" , 525 , 450);
-       text("Health" , 650 , 200);
-      text("200" , 675 , 250);
-      text("Damage" , 650 , 300);
-      text(".1" , 675 , 350);
-       text("Resistance" , 650 , 400);
-      text(".1" , 675 , 450);
-      fill(0);
+      text("Player 1 select gear" , 100 , 100); 
+      displayGear();
     }
+    
     if(gearFlag2 && statusFlag2){
-      text("Player 2 should select gear" , 100 , 100); 
-      text("Health" , 350 , 200);
-      text("100" , 375 , 250);
-      text("Damage" , 350 , 300);
-      text(".2" , 375 , 350);
-       text("Resistance" , 350 , 400);
-      text(".05" , 375 , 450);
-       text("Health" , 500 , 200);
-      text("300" , 525 , 250);
-      text("Damage" , 500 , 300);
-      text(".05" , 525 , 350);
-       text("Resistance" , 500 , 400);
-      text(".2" , 525 , 450);
-       text("Health" , 650 , 200);
-      text("200" , 675 , 250);
-      text("Damage" , 650 , 300);
-      text(".1" , 675 , 350);
-       text("Resistance" , 650 , 400);
-      text(".1" , 675 , 450);
-      fill(0);
+      text("Player 2 select gear" , 100 , 100); 
+      displayGear();
       statusFlag1 = true;
     }
+    
   } else {
       
-  if(mousePressed && clickFlag) {
-    attack(player1, imp);
-    countdown += 120;
-    clickFlag = false;
-  }
-  if(mousePressed && !clickFlag) {
-    attack(player2, imp);
-    countdown += 120;
-    clickFlag = true;
-  }
-  
-  text(""+player1.getHealth(), width/2+100, height/2);
-  text(""+player1.getDamage(), width/2+200, height/2);
-  text(""+player1.getResistance(), width/2+300, height/2);
-  
-   text(""+player2.getHealth(), width/2+100, height/2+100);
-  text(""+player2.getDamage(), width/2+300, height/2+100);
-  text(""+player2.getResistance(), width/2+200, height/2+100);
+    if(clickFlag && keyboardInput.isPressed(Controller.P4) && countdown == 0) {
+      //displayCard(player2.showCard(1));
+      //if(keyboardInput.isPressed(Controller.P1) && countdown == 0){
+        attack(player1, player2.getCard(1));
+        countdown += 120;
+        clickFlag = false;
+      //}
+    }
+    if(keyboardInput.isPressed(Controller.P5) && !clickFlag && countdown == 0) {
+      attack(player2, player1.getCard(1));
+      countdown += 120;
+      clickFlag = true;
+    }
+    
+    text(""+player1.getHealth(), width/2+100, height/2);
+    text(""+player1.getDamage(), width/2+200, height/2);
+    text(""+player1.getResistance(), width/2+300, height/2);
+    
+    text(""+player2.getHealth(), width/2+100, height/2+100);
+    text(""+player2.getDamage(), width/2+200, height/2+100);
+    text(""+player2.getResistance(), width/2+300, height/2+100);
   
   }
 }
-
-//void mouseClicked(){
-//  attack(player1, imp);
-//}
 
 public Gear assignGear(){
   Gear gear = new Gear(0, 0, 0); //base gear with no added stats
@@ -147,7 +106,50 @@ public Gear assignGear(){
 void attack(Player player, Card card){
   player.setHealth(player.getHealth() - card.getDamage());
 }
-  
+
+void displayGear(){
+      text("Health" , 350 , 200);
+      text("100" , 375 , 250);
+      text("Damage" , 350 , 300);
+      text(".2" , 375 , 350);
+      text("Resistance" , 325 , 400);
+      text(".05" , 375 , 450);
+      text("D" , 375 , 500);
+      text("Health" , 500 , 200);
+      text("300" , 525 , 250);
+      text("Damage" , 500 , 300);
+      text(".05" , 525 , 350);
+      text("Resistance" , 475 , 400);
+      text(".2" , 525 , 450);
+      text("R" , 525 , 500);
+      text("Health" , 650 , 200);
+      text("200" , 675 , 250);
+      text("Damage" , 650 , 300);
+      text(".1" , 675 , 350);
+      text("Resistance" , 625 , 400);
+      text(".1" , 675 , 450);
+      text("B" , 675 , 500);
+      fill(0);
+      line(325 , 150 , 475 , 150);
+      line(325 , 150 , 325 , 500);
+      line(325 , 500 , 475 , 500);
+      line(475 , 150 , 475 , 500);
+      line(475 , 150 , 625 , 150);
+      line(475 , 150 , 475 , 500);
+      line(475 , 500 , 625 , 500);
+      line(625 , 150 , 625 , 500);
+      line(625 , 150 , 775 , 150);
+      line(625 , 150 , 625 , 500);
+      line(625 , 500 , 775 , 500);
+      line(775 , 150 , 775 , 500);
+}
+
+void displayCard(Card card){
+      //text(Card , 100 , 100); 
+      text(card.getDamage() , 350 , 200);
+      text(card.pips() , 350 , 300);
+      fill(0);
+}
 
 Controller keyboardInput;
 
@@ -180,11 +182,11 @@ class Controller {
   }
 
   void press(int code) {
-    if(code == '1')
+    if(code == 'd')
       inputs[P1] = true;
-    if(code == '2')
+    if(code == 'r')
       inputs[P2] = true;
-    if(code == '3')
+    if(code == 'e')
       inputs[P3] = true;
     if(code == '4')
       inputs[P4] = true;
