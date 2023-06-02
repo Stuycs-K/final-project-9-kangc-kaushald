@@ -55,7 +55,9 @@ void draw(){
     if(!play){
       //message for Player 1 to select gear
       if(!gearFlag2 && statusFlag1){
+        textSize(48);
         text("Player 1 select gear" , 100 , 100); 
+        textSize(24);
         displayGear();
       }
       //Player 1 selects gear
@@ -67,7 +69,9 @@ void draw(){
       }
       //message for Player 2 to select gear
       if(gearFlag2 && statusFlag2){
+        textSize(48);
         text("Player 2 select gear" , 100 , 100); 
+        textSize(24);
         displayGear();
         statusFlag1 = true;
       }
@@ -88,17 +92,21 @@ void draw(){
         
       if(!clickFlag) {
          displayCards(player2);
+         fill(255,0,255);
          text("Player 2's turn", width/2, height/2 - 150);
-         text("Pips: " + player2.getPips(), width/2, height/2 - 100);
+         text("Pips: " + player2.getPips(), width/2, height/2 - 125);
          text("Press P to pass", width/2, height/2 + 150);
+         fill(0);
          if(countdown == 0){
            attack(player1, player2);
          }
       }
       if(clickFlag) {
+        fill(255,0,255);
         text("Player 1's turn", width/2, height/2 - 150);
-        text("Pips: " + player1.getPips(), width/2, height/2 - 100);
+        text("Pips: " + player1.getPips(), width/2, height/2 - 125);
         text("Press P to pass", width/2, height/2 + 150);
+        fill(0);
         displayCards(player1);
         if(countdown == 0){
           attack(player2, player1);
@@ -193,21 +201,22 @@ void displayGear(){
       text(".2" , 375 , 350);
       text("Resistance" , 350 , 400);
       text(".05" , 375 , 450);
-      text("Press D", 375, 500);
       text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
       text("Resistance" , 500 , 400);
       text(".2" , 525 , 450);
-      text("Press R" , 525, 500);
       text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
       text("Resistance" , 650 , 400);
       text(".1" , 675 , 450);
+      fill(255, 0, 255);
+      text("Press D", 375, 500);
       text("Press E", 675, 500);
+      text("Press R" , 525, 500);
       fill(0);
       line(325 , 150 , 475 , 150);
       line(325 , 150 , 325 , 500);
@@ -225,10 +234,25 @@ void displayGear(){
 
 void displayCards(Player player) {
   for(int x = 0; x < 5; x++){
+    line(175, 275, 1050, 275);
+    line(175, 325, 1050, 325);
+    line(175, 375, 1050, 375);
+    line(175, 425, 1050, 425);
+    line(175, 475, 1050, 475);
+    line(335, 260, 335, 500);
+    line(525, 260, 525, 500);
+    line(705, 260, 705, 500);
+    line(885, 260, 885, 500);
     Card current = player.showCard(x);
     text(current.getName() , width/6 * (x+1), height/2-50);
     text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
+    if(current.pips() > player.getPips()){
+      fill(255,0,0);
+    } else {
+      fill(0,255,0);
+    }
     text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
+    fill(0);
     text("Press " + (x+1) , width/6 * (x+1) , height/2+100);
   }
 }
