@@ -89,7 +89,7 @@ void draw(){
       if(!clickFlag) {
          displayCards(player2);
          text("Player 2's turn", width/2, height/2 - 150);
-         text("Pips: " + player2.getPips(), width/2, height/2 - 100);
+         text("Pips: " + player2.getPips(), width/2, height/2 - 125);
          text("Press P to pass", width/2, height/2 + 150);
          if(countdown == 0){
            attack(player1, player2);
@@ -97,7 +97,7 @@ void draw(){
       }
       if(clickFlag) {
         text("Player 1's turn", width/2, height/2 - 150);
-        text("Pips: " + player1.getPips(), width/2, height/2 - 100);
+        text("Pips: " + player1.getPips(), width/2, height/2 - 125);
         text("Press P to pass", width/2, height/2 + 150);
         displayCards(player1);
         if(countdown == 0){
@@ -225,10 +225,25 @@ void displayGear(){
 
 void displayCards(Player player) {
   for(int x = 0; x < 5; x++){
+    line(175, 275, 1050, 275);
+    line(175, 325, 1050, 325);
+    line(175, 375, 1050, 375);
+    line(175, 425, 1050, 425);
+    line(175, 475, 1050, 475);
+    line(335, 260, 335, 500);
+    line(525, 260, 525, 500);
+    line(705, 260, 705, 500);
+    line(885, 260, 885, 500);
     Card current = player.showCard(x);
     text(current.getName() , width/6 * (x+1), height/2-50);
     text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
+    if(current.pips() > player.getPips()){
+      fill(255,0,0);
+    } else {
+      fill(0,255,0);
+    }
     text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
+    fill(0);
     text("Press " + (x+1) , width/6 * (x+1) , height/2+100);
   }
 }
