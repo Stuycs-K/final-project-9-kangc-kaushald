@@ -178,6 +178,10 @@ void attack(Player player1, Player player2){
       clickFlag = !clickFlag;
       countdown += 120;
       player2.addPip();
+      double rand = Math.random();
+      if(player2.getPipChance() < rand){
+        player2.addPip();
+      }
   }
   if(keyPressed && !keyboardInput.isPressed(Controller.P9)) {
     Card spell = player2.showCard(i);
