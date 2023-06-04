@@ -6,6 +6,7 @@ public class Player{
   Gear gear;
   String schoolType;
   ArrayList<Card> deck;
+  float pipChance;
   
   public Player(){
     
