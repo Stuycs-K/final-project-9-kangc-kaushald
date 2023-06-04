@@ -116,10 +116,12 @@ void draw(){
       text("Player 1 Health: "+player1.getHealth(), 100, 100);
       text("Player 1 Damage: "+player1.getDamage(), 100, 150);
       text("Player 1 Resistance: "+player1.getResistance(), 100, 200);
+      text("Player 1 Resistance: "+player1.getPipChance(), 100, 250);
       
       text("Player 2 Health: "+player2.getHealth(), width - 300, height - 200);
       text("Player 2 Damage: "+player2.getDamage(), width - 300, height - 150);
-      text("Player 2 Resistance: "+player2.getResistance(), width - 300, height - 100);  
+      text("Player 2 Resistance: "+player2.getResistance(), width - 300, height - 100);
+      text("Player 2 Resistance: "+player2.getPipChance(), width - 300, height - 50);  
     }
   } else {
     text("Game Over", width/2, height/2);
