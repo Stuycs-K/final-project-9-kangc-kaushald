@@ -31,6 +31,10 @@ public class Player{
     return resistance;
   }
   
+  public float getPipChance() {
+    return pipChance;
+  }
+  
   public int deckSize() {
     return deck.size();
   }
