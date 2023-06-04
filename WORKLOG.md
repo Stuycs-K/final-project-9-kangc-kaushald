@@ -70,3 +70,20 @@ info
 //set the value of deck equal to a new method i wrote createDeck
 //imported java.util.* to use features like Collections to shuffle the createDeck
 //added accessor and mutator methods to Player that will be needed for turn based gameplay
+
+## date 5/31/23
+info
+//changed the mousePressed action to keyPressed so the user has multiple things they can do
+//Players are now able to attack each other with Cards from their createDeck
+//added displayCard and showCard methods that allow the user to see what their card does before they use it
+//added names to all of the Cards
+//edited the getCard method to take an index and changed the keys that do damage
+
+## date 6/1/23
+info
+//changed the attack method to take 2 Players as parameters and do damage based off of Player stats
+//wrote a displayCards method that shows 5 cards in the Players hand and allows them to use it
+//added the pip mechanic so that Players cant just use any card they want
+//added a pass mechanic so that Players can build up pips
+//added deckSize methods and flags to prevent index out of bounds errors
+//edited the screen to make it more readible

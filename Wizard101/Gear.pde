@@ -2,12 +2,14 @@ public class Gear{
   int health;
   float damage;
   float resistance;
+  float pipChance;
   //String[] type = {"damage" , "resistance" , "balanced"};
   
-  public Gear(int newhealth, float newdamage, float newresistance){
+  public Gear(int newhealth, float newdamage, float newresistance, float newpipChance){
     health = newhealth;
     damage = newdamage;
     resistance = newresistance;
+    pipChance = newpipChance;
   }
   
   public int getHealth(){
@@ -20,6 +22,10 @@ public class Gear{
   
   public float getResistance(){
     return resistance;
+  }
+  
+  public float getPipChance(){
+    return pipChance;
   }
  
 }
