@@ -1,6 +1,6 @@
  import java.util.*;
-  Gear gear1 = new Gear(0, 0, 0);
-  Gear gear2 = new Gear(0, 0, 0);
+  Gear gear1 = new Gear(0, 0, 0, 0);
+  Gear gear2 = new Gear(0, 0, 0, 0);
   boolean gearFlag1 = true;
   boolean gearFlag2 = false;
   boolean statusFlag1 = true;
