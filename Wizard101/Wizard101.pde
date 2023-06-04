@@ -190,6 +190,10 @@ void attack(Player player1, Player player2){
       countdown += 120;
       player2.setPips(player2.getPips() - spell.pips());
       player2.addPip();
+      double rand = Math.random();
+      if(player2.getPipChance() < rand){
+        player2.addPip();
+      }
     }
   }
 }
