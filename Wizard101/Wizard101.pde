@@ -1,6 +1,6 @@
  import java.util.*;
-  Gear gear1 = new Gear(0, 0, 0);
-  Gear gear2 = new Gear(0, 0, 0);
+  Gear gear1 = new Gear(0, 0, 0, 0);
+  Gear gear2 = new Gear(0, 0, 0, 0);
   boolean gearFlag1 = true;
   boolean gearFlag2 = false;
   boolean statusFlag1 = true;
@@ -144,15 +144,15 @@ void draw(){
 }
 
 public Gear assignGear(){
-  Gear gear = new Gear(0, 0, 0); //base gear with no added stats
+  Gear gear = new Gear(0, 0, 0, 0); //base gear with no added stats
   if (keyboardInput.isPressed(Controller.P1)) {
-    gear = new Gear(100 , .2 , .05);//damage heavy gear
+    gear = new Gear(100 , .2 , .05, .3);//damage heavy gear
   }
   if (keyboardInput.isPressed(Controller.P2)) {
-    gear = new Gear(300 , .05 , .2);//resistance heavy gear
+    gear = new Gear(300 , .05 , .2, .1);//resistance heavy gear
   }
   if (keyboardInput.isPressed(Controller.P3)) {
-    gear = new Gear(200 , .1 , .1);//balanced gear
+    gear = new Gear(200 , .1 , .1, .2);//balanced gear
   } 
   return gear;
 }
@@ -178,6 +178,10 @@ void attack(Player player1, Player player2){
       clickFlag = !clickFlag;
       countdown += 120;
       player2.addPip();
+      double rand = Math.random();
+      if(player2.getPipChance() < rand){
+        player2.addPip();
+      }
   }
   if(keyPressed && !keyboardInput.isPressed(Controller.P9)) {
     Card spell = player2.showCard(i);
@@ -190,6 +194,10 @@ void attack(Player player1, Player player2){
       countdown += 120;
       player2.setPips(player2.getPips() - spell.pips());
       player2.addPip();
+      double rand = Math.random();
+      if(player2.getPipChance() < rand){
+        player2.addPip();
+      }
     }
   }
 }

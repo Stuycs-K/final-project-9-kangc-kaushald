@@ -6,6 +6,7 @@ public class Player{
   Gear gear;
   String schoolType;
   ArrayList<Card> deck;
+  float pipChance;
   
   public Player(){
     
@@ -28,6 +29,10 @@ public class Player{
   
   public float getResistance() {
     return resistance;
+  }
+  
+  public float getPipChance() {
+    return pipChance;
   }
   
   public int deckSize() {
