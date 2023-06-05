@@ -20,6 +20,23 @@ Updated player by a bit and mainly worked on fixing the stat application process
 
 ### date 5/26/23
 Tried to update the gear and understand the gear mechanism
+
+### date 5/27/23
+Edited the wizard101 to create a new gear instead of editing the already existing Gear
+
+### date 5/28/23
+Added some description on the sections of code on Wizard101 to make it seem more organized
+
+### date 5/29/23
+Edited the logic of attacking to make sure the game is turn based game instead of one side attacking
+
+### date 5/30/23
+Edited the code to print the the status on screen for each players and gear selection page
+
+### date 5/31/23
+Got the feedback for why the mouseClicked method didn't worked
+
+
 info
 
 
