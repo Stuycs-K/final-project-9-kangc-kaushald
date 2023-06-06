@@ -104,3 +104,10 @@ info
 //added a pass mechanic so that Players can build up pips
 //added deckSize methods and flags to prevent index out of bounds errors
 //edited the screen to make it more readible
+
+## date 6/2/23 ## date 6/3/23 ## date 6/4/23
+info
+//added another instance variable, pipChance, that will allow a Player to gain 2 pips after a round instead of 1 if they get lucky
+//edited the Gear class, Player class, and assignGear class to use the pipChance variable to give Players power pips
+//added the power pip mechanic to the attack method so that if a Player gets lucky, 2 pips will spawn instead of 1
+//the pass feature also allows the Player to gain power pips
