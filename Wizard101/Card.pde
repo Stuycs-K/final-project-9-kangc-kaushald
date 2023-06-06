@@ -1,4 +1,4 @@
-public class Card {
+public class Card extends CardSuperClass{
   int damage;
   int pips;
   String name;
