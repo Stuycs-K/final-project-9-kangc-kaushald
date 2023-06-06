@@ -111,3 +111,10 @@ info
 //edited the Gear class, Player class, and assignGear class to use the pipChance variable to give Players power pips
 //added the power pip mechanic to the attack method so that if a Player gets lucky, 2 pips will spawn instead of 1
 //the pass feature also allows the Player to gain power pips
+
+## date 6/5/23
+info
+//created the CardSuperClass class which will be a parent to Card and SupportCard so they can be added to the same deckSize
+//edited the Card and SupportCard classes to be childs of CardSuperClass
+//added a Blade class that boosts card damage by 40 percent
+//added a Shield class that reduces incoming damage by 50 percent
