@@ -2,6 +2,7 @@ public class Card extends CardSuperClass{
   int damage;
   int pips;
   String name;
+  PImage image;
   Card(int damage, int pips){
     this.damage = damage;
     this.pips = pips;
