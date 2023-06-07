@@ -16,4 +16,7 @@ public class Card extends CardSuperClass{
   public String getName() {
     return name;
   }
+  void boostDamage(int buff){
+    damage += buff;
+  }
 }
