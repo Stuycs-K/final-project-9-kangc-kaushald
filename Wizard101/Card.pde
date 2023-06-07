@@ -3,9 +3,11 @@ public class Card extends CardSuperClass{
   int pips;
   String name;
   PImage image;
-  Card(int damage, int pips){
+  float accuracy;
+  Card(int damage, int pips, float accuracy){
     this.damage = damage;
     this.pips = pips;
+    this.accuracy = accuracy;
   }
   public int getDamage() {
     return damage;
@@ -15,6 +17,9 @@ public class Card extends CardSuperClass{
   }
   public String getName() {
     return name;
+  }
+  public float getAccuracy() {
+    return accuracy;
   }
   void boostDamage(int buff){
     damage += buff;
