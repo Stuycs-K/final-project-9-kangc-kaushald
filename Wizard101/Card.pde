@@ -1,4 +1,4 @@
-public class Card {
+public class Card extends CardSuperClass{
   int damage;
   int pips;
   String name;
@@ -15,5 +15,8 @@ public class Card {
   }
   public String getName() {
     return name;
+  }
+  void boostDamage(int buff){
+    damage += buff;
   }
 }

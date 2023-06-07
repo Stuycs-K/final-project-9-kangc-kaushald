@@ -1,4 +1,4 @@
-public class SupportCard{
+public class SupportCard extends CardSuperClass{
   float multiplier;
   public SupportCard(float multiplier){
     this.multiplier = multiplier;

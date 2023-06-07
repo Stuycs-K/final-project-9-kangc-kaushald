@@ -1,6 +1,8 @@
 public class Leprechaun extends Card{
+  int boost = (int)(Math.random() * 40);
   public Leprechaun() {
-    super(195, 2);
+    super(155, 2);
+    boostDamage(boost);
     name = "Leprechaun";
   }
 }
