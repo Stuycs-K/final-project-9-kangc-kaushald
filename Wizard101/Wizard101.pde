@@ -189,13 +189,18 @@ void attack(Player player1, Player player2){
   if(keyPressed && !keyboardInput.isPressed(Controller.P9)) {
     Card spell = player2.showCard(i);
     if(spell.pips() <= player2.getPips()){
-      spell = player2.getCard(i);
-      int damage = (int)(spell.getDamage() * player2.getDamage());
-      damage /= player1.getResistance();
-      player1.setHealth(player1.getHealth() - damage);
+      double rand1 = Math.random();
+      if(spell.getAccuracy() > rand1){
+        spell = player2.getCard(i);
+        int damage = (int)(spell.getDamage() * player2.getDamage());
+        damage /= player1.getResistance();
+        player1.setHealth(player1.getHealth() - damage);
+        player2.setPips(player2.getPips() - spell.pips());
+      } else {
+        background(255, 0, 0);
+      }
       clickFlag = !clickFlag;
       countdown += 120;
-      player2.setPips(player2.getPips() - spell.pips());
       player2.addPip();
       double rand = Math.random();
       if(player2.getPipChance() < rand){
@@ -267,7 +272,6 @@ void displayCards(Player player) {
     //text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
     text("Press " + (x+1) , width/6 * (x+1)+25 , height/2+125);
     fill(0);
-    
   }
 }
 
