@@ -8,7 +8,7 @@ public class Life extends School{
     damage = 1.05 + gear.getDamage();
     resistance = 1.05 + gear.getResistance();
     deck = createDeck();
-    pipChance = .4;
+    pipChance = .2 + gear.getPipChance();
   }
   
   public ArrayList<Card> createDeck(){
