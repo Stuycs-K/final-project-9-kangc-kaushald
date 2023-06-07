@@ -259,14 +259,15 @@ void displayCards(Player player) {
     image(load , width/6 * (x+1) , height/2-100);
     //text(current.getName() , width/6 * (x+1), height/2-50);
     //text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
-    //if(current.pips() > player.getPips()){
-    //  fill(255,0,0);
-    //} else {
-    //  fill(0,255,0);
-    //}
+    if(current.pips() > player.getPips()){
+      fill(255,0,0);
+    } else {
+      fill(0,255,0);
+    }
     //text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
-    //fill(0);
     text("Press " + (x+1) , width/6 * (x+1)+25 , height/2+125);
+    fill(0);
+    
   }
 }
 
