@@ -17,6 +17,8 @@
   boolean done1 = false;
   boolean done2 = false;
   PImage load;
+  boolean school1 = true;
+  boolean school2 = false;
   
 void setup(){
   keyboardInput = new Controller();
@@ -84,6 +86,27 @@ void draw(){
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
+        if(school1){
+          textSize(48);
+          text("Player 1 select school" , 100 , 100); 
+          textSize(24);
+          //displayGear();
+        }
+       if(!school2 && keyPressed){
+        //player1 = assignSchool();
+        school1 = false;
+        school2 = true;
+        countdown += 120;
+      }
+      if(school2){
+        textSize(48);
+        text("Player 2 select school" , 100 , 100); 
+        textSize(24);
+        //displayGear();
+      }
+      if(!school1 && keyPressed && countdown == 0){
+        //player2 = assignSchool();
+      }
         player1 = new Storm(gear1);
         player2 = new Storm(gear2);
         play = true;
