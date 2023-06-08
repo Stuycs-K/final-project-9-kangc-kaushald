@@ -9,8 +9,8 @@
   int countdown;
   int countdown1;
   boolean createPlayer = false;
-  Player player1 = new Life(gear1);
-  Player player2 = new Life(gear2);
+  Player player1 = new Storm(gear1);
+  Player player2 = new Storm(gear2);
   boolean turn1 = true;
   boolean play = false;
   boolean done = false;
@@ -84,8 +84,8 @@ void draw(){
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        player1 = new Life(gear1);
-        player2 = new Life(gear2);
+        player1 = new Storm(gear1);
+        player2 = new Storm(gear2);
         play = true;
         countdown += 120;
       }
@@ -182,23 +182,29 @@ void attack(Player player1, Player player2){
       countdown += 120;
       player2.addPip();
       double rand = Math.random();
-      if(player2.getPipChance() < rand){
+      if(player2.getPipChance() > rand){
         player2.addPip();
       }
   }
   if(keyPressed && !keyboardInput.isPressed(Controller.P9)) {
     Card spell = player2.showCard(i);
     if(spell.pips() <= player2.getPips()){
-      spell = player2.getCard(i);
-      int damage = (int)(spell.getDamage() * player2.getDamage());
-      damage /= player1.getResistance();
-      player1.setHealth(player1.getHealth() - damage);
+      double rand1 = Math.random();
+      if(spell.getAccuracy() > rand1){
+        spell = player2.getCard(i);
+        int damage = (int)(spell.getDamage() * player2.getDamage());
+        damage /= player1.getResistance();
+        player1.setHealth(player1.getHealth() - damage);
+        player2.setPips(player2.getPips() - spell.pips());
+      } else {
+        background(255, 0, 0);
+        spell = player2.getCard(i);
+      }
       clickFlag = !clickFlag;
       countdown += 120;
-      player2.setPips(player2.getPips() - spell.pips());
       player2.addPip();
       double rand = Math.random();
-      if(player2.getPipChance() < rand){
+      if(player2.getPipChance() > rand){
         player2.addPip();
       }
     }
@@ -259,14 +265,14 @@ void displayCards(Player player) {
     image(load , width/6 * (x+1) , height/2-100);
     //text(current.getName() , width/6 * (x+1), height/2-50);
     //text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
-    //if(current.pips() > player.getPips()){
-    //  fill(255,0,0);
-    //} else {
-    //  fill(0,255,0);
-    //}
+    if(current.pips() > player.getPips()){
+      fill(255,0,0);
+    } else {
+      fill(0,255,0);
+    }
     //text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
-    //fill(0);
     text("Press " + (x+1) , width/6 * (x+1)+25 , height/2+125);
+    fill(0);
   }
 }
 

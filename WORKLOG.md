@@ -118,3 +118,16 @@ info
 //edited the Card and SupportCard classes to be childs of CardSuperClass
 //added a Blade class that boosts card damage by 40 percent
 //added a Shield class that reduces incoming damage by 50 percent
+
+## date 6/6/23
+info
+//added a boostDamage method in the Card class to give them a range of damage, like how the game works
+//edited the base damage in all of the cards to match the card art
+//implemented a random integer that will be generated for every new Card and add on to the base damage
+
+## date 6/7/23
+//added an accuracy instance variable which gives the card the ability to fizzle if the user get unlucky
+//added accuracy stats to all Cards and changed Card constructor accordingly
+//edited the displayCards method to highlight the Press prompts as green when the Card can be used and red when it cannot be used
+//edited the attack method to use the accuracy stat and flash the screen red when a Player fizzles
+//fixed the power pip random logic, it was doing the opposite as intended before
