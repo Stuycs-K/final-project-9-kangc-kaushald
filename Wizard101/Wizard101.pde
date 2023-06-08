@@ -322,10 +322,12 @@ class Controller {
   static final int P7 = 6;
   static final int P8 = 7;
   static final int P9 = 8;
+  static final int P10 = 9;
+  static final int P11 = 10;
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[9];//2 valid buttons
+    inputs = new boolean[11];
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -353,6 +355,10 @@ class Controller {
       inputs[P8] = true;
      if(code == 'P')
       inputs[P9] = true;
+     if(code == 'L')
+      inputs[P10] = true;
+     if(code == 'S')
+      inputs[P11] = true;
   }
   void release(int code) {
     if(code == 'D')
@@ -373,5 +379,9 @@ class Controller {
       inputs[P8] = false;
     if(code == 'P')
       inputs[P9] = false;
+    if(code == 'L')
+      inputs[P10] = false;
+    if(code == 'S')
+      inputs[P10] = false;
   }
 }
