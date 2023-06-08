@@ -9,8 +9,8 @@
   int countdown;
   int countdown1;
   boolean createPlayer = false;
-  Player player1 = new Life(gear1);
-  Player player2 = new Life(gear2);
+  Player player1 = new Storm(gear1);
+  Player player2 = new Storm(gear2);
   boolean turn1 = true;
   boolean play = false;
   boolean done = false;
@@ -84,8 +84,8 @@ void draw(){
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        player1 = new Life(gear1);
-        player2 = new Life(gear2);
+        player1 = new Storm(gear1);
+        player2 = new Storm(gear2);
         play = true;
         countdown += 120;
       }
