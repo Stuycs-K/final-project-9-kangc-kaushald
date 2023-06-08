@@ -182,7 +182,7 @@ void attack(Player player1, Player player2){
       countdown += 120;
       player2.addPip();
       double rand = Math.random();
-      if(player2.getPipChance() < rand){
+      if(player2.getPipChance() > rand){
         player2.addPip();
       }
   }
@@ -198,12 +198,13 @@ void attack(Player player1, Player player2){
         player2.setPips(player2.getPips() - spell.pips());
       } else {
         background(255, 0, 0);
+        spell = player2.getCard(i);
       }
       clickFlag = !clickFlag;
       countdown += 120;
       player2.addPip();
       double rand = Math.random();
-      if(player2.getPipChance() < rand){
+      if(player2.getPipChance() > rand){
         player2.addPip();
       }
     }
