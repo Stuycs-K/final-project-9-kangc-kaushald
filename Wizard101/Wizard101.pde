@@ -183,6 +183,17 @@ public Gear assignGear(){
   return gear;
 }
 
+public School assignSchool(Gear gear){
+  School school = new School(); //base gear with no added stats
+  if (keyboardInput.isPressed(Controller.P10)) {
+    school = new Life(gear);//damage heavy gear
+  }
+  if (keyboardInput.isPressed(Controller.P11)) {
+    school = new Storm(gear);//resistance heavy gear
+  }
+  return school;
+}
+
 void attack(Player player1, Player player2){
   int i = 0;
   if (keyboardInput.isPressed(Controller.P4)) {
