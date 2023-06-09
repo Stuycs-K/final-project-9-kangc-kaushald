@@ -36,6 +36,18 @@ Edited the code to print the the status on screen for each players and gear sele
 ### date 5/31/23
 Got the feedback for why the mouseClicked method didn't worked
 
+### date 6/1/23
+The MVP was due so tested out our demo version by a little bit to see if everything worked
+
+### date 6/3/23 date 6/4/23 date 6/5/23
+Tried to import an image of cards to display instead of data table for card display but it didn't work out nicely
+
+### date 6/6/23
+Successfully imported an image to display for CardSuperClass
+
+### date 6/7/23
+Worked on the Storm School to completion
+
 
 info
 
