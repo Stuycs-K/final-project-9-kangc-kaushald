@@ -17,11 +17,20 @@
   boolean done1 = false;
   boolean done2 = false;
   PImage load;
+  boolean school1 = true;
+  boolean school2 = false;
+  boolean done3 = false;
   PImage damage;
   PImage health;
   PImage resistance;
   PImage pipchance;
   PImage accuracy;
+  boolean cast = false;
+  boolean one = true;
+  boolean two = true;
+  boolean three = true;
+  boolean four = true;
+  boolean five = true;
   
 void setup(){
   keyboardInput = new Controller();
@@ -33,7 +42,7 @@ void setup(){
 
 //actual methods//
 void draw(){
-  
+
   if(countdown > 0){
     countdown --;
   }
@@ -42,22 +51,23 @@ void draw(){
     countdown1 --;
   }
   
-  if(player1.getHealth() < 0 || player2.getHealth() < 0) {
-    done = true;
+  if(play){
+    if(player1.getHealth() < 0 || player2.getHealth() < 0) {
+      done = true;
+    }
+    
+    if(player1.deckSize() < 6) {
+      done1 = true;
+    }
+    
+    if(player2.deckSize() < 6) {
+      done2 = true;
+    }  
   }
-  
-  if(player1.deckSize() < 6) {
-    done1 = true;
-  }
-  
-  if(player2.deckSize() < 6) {
-    done2 = true;
-  }  
-  
   background(255);
   fill(0);
   
-  if(!done && !done1 && !done2) {
+  if(!done && !done1 && !done2 && !done3) {
     if(!play){
       //message for Player 1 to select gear
       if(!gearFlag2 && statusFlag1){
@@ -89,12 +99,12 @@ void draw(){
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        player1 = new Storm(gear1);
-        player2 = new Storm(gear2);
+        player1 = new Life(gear1);
+        player2 = new Life(gear2);
         play = true;
         countdown += 120;
       }
-    } else {
+   } else {
         
       if(!clickFlag) {
          displayCards(player2);
@@ -119,6 +129,7 @@ void draw(){
         }
       }
       
+      text("Player 1", 175, 50);
       text(": "+player1.getHealth(), 175, 100);
       health = loadImage("Health.png");
       image(health , 100 , 50);
@@ -132,8 +143,9 @@ void draw(){
       pipchance = loadImage("PipChance.png");
       image(pipchance , 100 , 220);
       
+      text("Player 2", width-100, 50);
       text(": "+player2.getHealth(), width - 100, 100);
-       image(health , width - 175 , 50);
+      image(health , width - 175 , 50);
       text(": "+player2.getDamage(), width - 100, 150);;
       image(damage , width - 175 , 115);
       text(": "+player2.getResistance(), width - 150, 215);
@@ -177,6 +189,17 @@ public Gear assignGear(){
   return gear;
 }
 
+public School assignSchool(Gear gear){
+  School school = new School(); //base gear with no added stats
+  if (keyboardInput.isPressed(Controller.P10)) {
+    school = new Life(gear);//damage heavy gear
+  }
+  if (keyboardInput.isPressed(Controller.P11)) {
+    school = new Storm(gear);//resistance heavy gear
+  }
+  return school;
+}
+
 void attack(Player player1, Player player2){
   int i = 0;
   if (keyboardInput.isPressed(Controller.P4)) {
@@ -194,6 +217,31 @@ void attack(Player player1, Player player2){
   if (keyboardInput.isPressed(Controller.P8)) {
     i = 4;
   }
+  if (keyboardInput.isPressed(Controller.P12) && one) {
+    Card discard = player2.getCard(0);
+    cast = true;
+    one = false;
+  }
+  if (keyboardInput.isPressed(Controller.P13) && two) {
+    Card discard = player2.getCard(1);
+    cast = true;
+    two = false;
+  }
+  if (keyboardInput.isPressed(Controller.P14) && three) {
+    Card discard = player2.getCard(2);
+    cast = true;
+    three = false;
+  } 
+  if (keyboardInput.isPressed(Controller.P15) && four) {
+    Card discard = player2.getCard(3);
+    cast = true;
+    four = false;
+  }
+  if (keyboardInput.isPressed(Controller.P16) && five) {
+    Card discard = player2.getCard(4);
+    cast = true;
+    five = false;
+  }
   if (keyboardInput.isPressed(Controller.P9)) {
       clickFlag = !clickFlag;
       countdown += 120;
@@ -202,8 +250,13 @@ void attack(Player player1, Player player2){
       if(player2.getPipChance() > rand){
         player2.addPip();
       }
+    one = true;
+    two = true;
+    three = true;
+    four = true;
+    five = true;
   }
-  if(keyPressed && !keyboardInput.isPressed(Controller.P9)) {
+  if(keyPressed && !keyboardInput.isPressed(Controller.P9) && !cast) {
     Card spell = player2.showCard(i);
     if(spell.pips() <= player2.getPips()){
       double rand1 = Math.random();
@@ -224,6 +277,11 @@ void attack(Player player1, Player player2){
       if(player2.getPipChance() > rand){
         player2.addPip();
       }
+    one = true;
+    two = true;
+    three = true;
+    four = true;
+    five = true;
     }
   }
 }
@@ -268,26 +326,14 @@ void displayGear(){
 
 void displayCards(Player player) {
   for(int x = 0; x < 5; x++){
-    //line(175, 275, 1050, 275);
-    //line(175, 325, 1050, 325);
-    //line(175, 375, 1050, 375);
-    //line(175, 425, 1050, 425);
-    //line(175, 475, 1050, 475);
-    //line(335, 260, 335, 500);
-    //line(525, 260, 525, 500);
-    //line(705, 260, 705, 500);
-    //line(885, 260, 885, 500);
     Card current = player.showCard(x);
     load = loadImage(current.getName()+ ".png");
     image(load , width/6 * (x+1) , height/2-100);
-    //text(current.getName() , width/6 * (x+1), height/2-50);
-    //text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
     if(current.pips() > player.getPips()){
       fill(255,0,0);
     } else {
       fill(0,255,0);
     }
-    //text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
     text("Press " + (x+1) , width/6 * (x+1)+25 , height/2+125);
     fill(0);
   }
@@ -348,10 +394,18 @@ class Controller {
   static final int P7 = 6;
   static final int P8 = 7;
   static final int P9 = 8;
+  static final int P10 = 9;
+  static final int P11 = 10;
+  static final int P12 = 11;
+  static final int P13 = 12;
+  static final int P14 = 13;
+  static final int P15 = 14;
+  static final int P16 = 15;
+  
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[9];//2 valid buttons
+    inputs = new boolean[16];
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -379,6 +433,20 @@ class Controller {
       inputs[P8] = true;
      if(code == 'P')
       inputs[P9] = true;
+     if(code == 'L')
+      inputs[P10] = true;
+     if(code == 'S')
+      inputs[P11] = true;
+     if(code == 'Z')
+      inputs[P12] = true;
+     if(code == 'X')
+      inputs[P13] = true;
+     if(code == 'C')
+      inputs[P14] = true;
+     if(code == 'V')
+      inputs[P15] = true;
+     if(code == 'B')
+      inputs[P16] = true;
   }
   void release(int code) {
     if(code == 'D')
@@ -399,5 +467,19 @@ class Controller {
       inputs[P8] = false;
     if(code == 'P')
       inputs[P9] = false;
+    if(code == 'L')
+      inputs[P10] = false;
+    if(code == 'S')
+      inputs[P10] = false;
+     if(code == 'Z')
+      inputs[P12] = false;
+     if(code == 'X')
+      inputs[P13] = false;
+     if(code == 'C')
+      inputs[P14] = false;
+     if(code == 'V')
+      inputs[P15] = false;
+     if(code == 'B')
+      inputs[P16] = false;
   }
 }
