@@ -5,7 +5,7 @@ public class Player{
   float resistance;
   Gear gear;
   String schoolType;
-  ArrayList<Card> deck;
+  ArrayList<Card> deck = new ArrayList<Card>();
   float pipChance;
   
   public Player(){
