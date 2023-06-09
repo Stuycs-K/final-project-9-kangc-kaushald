@@ -325,7 +325,18 @@ void displayGear(){
 }
 
 void displayCards(Player player) {
-  for(int x = 0; x < 5; x++){
+  int counter = 0;
+  if(one)
+    counter++;
+  if(two)
+    counter++;
+  if(three)
+    counter++;
+  if(four)
+    counter++;
+  if(five)
+    counter++;
+  for(int x = 0; x < counter; x++){
     Card current = player.showCard(x);
     load = loadImage(current.getName()+ ".png");
     image(load , width/6 * (x+1) , height/2-100);
