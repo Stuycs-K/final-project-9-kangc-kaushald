@@ -19,6 +19,7 @@
   PImage load;
   boolean school1 = true;
   boolean school2 = false;
+  boolean done3 = false;
   
 void setup(){
   keyboardInput = new Controller();
@@ -93,7 +94,7 @@ void draw(){
           //displayGear();
         }
        if(!school2 && keyPressed){
-        //player1 = assignSchool();
+        player1 = assignSchool(gear1);
         school1 = false;
         school2 = true;
         countdown += 120;
@@ -105,14 +106,14 @@ void draw(){
         //displayGear();
       }
       if(!school1 && keyPressed && countdown == 0){
-        //player2 = assignSchool();
+        player2 = assignSchool(gear2);
       }
-        player1 = new Storm(gear1);
-        player2 = new Storm(gear2);
+      if(done3) {
         play = true;
         countdown += 120;
       }
-    } else {
+     }
+   } else {
         
       if(!clickFlag) {
          displayCards(player2);
