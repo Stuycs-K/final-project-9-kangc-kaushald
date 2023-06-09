@@ -45,22 +45,23 @@ void draw(){
     countdown1 --;
   }
   
-  if(player1.getHealth() < 0 || player2.getHealth() < 0) {
-    done = true;
+  if(play){
+    if(player1.getHealth() < 0 || player2.getHealth() < 0) {
+      done = true;
+    }
+    
+    if(player1.deckSize() < 6) {
+      done1 = true;
+    }
+    
+    if(player2.deckSize() < 6) {
+      done2 = true;
+    }  
   }
-  
-  if(player1.deckSize() < 6) {
-    done1 = true;
-  }
-  
-  if(player2.deckSize() < 6) {
-    done2 = true;
-  }  
-  
   background(255);
   fill(0);
   
-  if(!done && !done1 && !done2) {
+  if(!done && !done1 && !done2 && !done3) {
     if(!play){
       //message for Player 1 to select gear
       if(!gearFlag2 && statusFlag1){
@@ -96,7 +97,7 @@ void draw(){
           textSize(48);
           text("Player 1 select school" , 100 , 100); 
           textSize(24);
-          //displayGear();
+          displaySchool();
         }
        if(!school2 && keyPressed){
         player1 = assignSchool(gear1);
@@ -108,7 +109,7 @@ void draw(){
         textSize(48);
         text("Player 2 select school" , 100 , 100); 
         textSize(24);
-        //displayGear();
+        displaySchool();
       }
       if(!school1 && keyPressed && countdown == 0){
         player2 = assignSchool(gear2);
@@ -116,6 +117,7 @@ void draw(){
       if(done3) {
         play = true;
         countdown += 120;
+        done3 = false;
       }
      }
    } else {
