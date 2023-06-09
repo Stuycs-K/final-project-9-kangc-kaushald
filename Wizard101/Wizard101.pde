@@ -123,6 +123,7 @@ void draw(){
         }
       }
       
+      text("Player 1", 175, 50);
       text(": "+player1.getHealth(), 175, 100);
       health = loadImage("Health.png");
       image(health , 100 , 50);
@@ -136,8 +137,9 @@ void draw(){
       pipchance = loadImage("PipChance.png");
       image(pipchance , 100 , 220);
       
+      text("Player 2", width-100, 50);
       text(": "+player2.getHealth(), width - 100, 100);
-       image(health , width - 175 , 50);
+      image(health , width - 175 , 50);
       text(": "+player2.getDamage(), width - 100, 150);;
       image(damage , width - 175 , 115);
       text(": "+player2.getResistance(), width - 150, 215);
