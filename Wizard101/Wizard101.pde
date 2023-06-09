@@ -93,33 +93,11 @@ void draw(){
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        if(school1){
-          textSize(48);
-          text("Player 1 select school" , 100 , 100); 
-          textSize(24);
-          displaySchool();
-        }
-       if(!school2 && keyPressed){
-        player1 = assignSchool(gear1);
-        school1 = false;
-        school2 = true;
-        countdown += 120;
-      }
-      if(school2){
-        textSize(48);
-        text("Player 2 select school" , 100 , 100); 
-        textSize(24);
-        displaySchool();
-      }
-      if(!school1 && keyPressed && countdown == 0){
-        player2 = assignSchool(gear2);
-      }
-      if(done3) {
+        player1 = new Life(gear1);
+        player2 = new Life(gear2);
         play = true;
         countdown += 120;
-        done3 = false;
       }
-     }
    } else {
         
       if(!clickFlag) {
