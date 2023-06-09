@@ -25,6 +25,12 @@
   PImage resistance;
   PImage pipchance;
   PImage accuracy;
+  boolean cast = false;
+  boolean one = true;
+  boolean two = true;
+  boolean three = true;
+  boolean four = true;
+  boolean five = true;
   
 void setup(){
   keyboardInput = new Controller();
@@ -36,7 +42,7 @@ void setup(){
 
 //actual methods//
 void draw(){
-  
+
   if(countdown > 0){
     countdown --;
   }
@@ -211,6 +217,31 @@ void attack(Player player1, Player player2){
   if (keyboardInput.isPressed(Controller.P8)) {
     i = 4;
   }
+  if (keyboardInput.isPressed(Controller.P12) && one) {
+    Card discard = player2.getCard(0);
+    cast = true;
+    one = false;
+  }
+  if (keyboardInput.isPressed(Controller.P13) && two) {
+    Card discard = player2.getCard(1);
+    cast = true;
+    two = false;
+  }
+  if (keyboardInput.isPressed(Controller.P14) && three) {
+    Card discard = player2.getCard(2);
+    cast = true;
+    three = false;
+  } 
+  if (keyboardInput.isPressed(Controller.P15) && four) {
+    Card discard = player2.getCard(3);
+    cast = true;
+    four = false;
+  }
+  if (keyboardInput.isPressed(Controller.P16) && five) {
+    Card discard = player2.getCard(4);
+    cast = true;
+    five = false;
+  }
   if (keyboardInput.isPressed(Controller.P9)) {
       clickFlag = !clickFlag;
       countdown += 120;
@@ -219,8 +250,13 @@ void attack(Player player1, Player player2){
       if(player2.getPipChance() > rand){
         player2.addPip();
       }
+    one = true;
+    two = true;
+    three = true;
+    four = true;
+    five = true;
   }
-  if(keyPressed && !keyboardInput.isPressed(Controller.P9)) {
+  if(keyPressed && !keyboardInput.isPressed(Controller.P9) && !cast) {
     Card spell = player2.showCard(i);
     if(spell.pips() <= player2.getPips()){
       double rand1 = Math.random();
@@ -241,6 +277,11 @@ void attack(Player player1, Player player2){
       if(player2.getPipChance() > rand){
         player2.addPip();
       }
+    one = true;
+    two = true;
+    three = true;
+    four = true;
+    five = true;
     }
   }
 }
@@ -285,26 +326,14 @@ void displayGear(){
 
 void displayCards(Player player) {
   for(int x = 0; x < 5; x++){
-    //line(175, 275, 1050, 275);
-    //line(175, 325, 1050, 325);
-    //line(175, 375, 1050, 375);
-    //line(175, 425, 1050, 425);
-    //line(175, 475, 1050, 475);
-    //line(335, 260, 335, 500);
-    //line(525, 260, 525, 500);
-    //line(705, 260, 705, 500);
-    //line(885, 260, 885, 500);
     Card current = player.showCard(x);
     load = loadImage(current.getName()+ ".png");
     image(load , width/6 * (x+1) , height/2-100);
-    //text(current.getName() , width/6 * (x+1), height/2-50);
-    //text("Damage: " + current.getDamage() , width/6 * (x+1), height/2);
     if(current.pips() > player.getPips()){
       fill(255,0,0);
     } else {
       fill(0,255,0);
     }
-    //text("Pips: " + current.pips() , width/6 * (x+1) , height/2+50);
     text("Press " + (x+1) , width/6 * (x+1)+25 , height/2+125);
     fill(0);
   }
