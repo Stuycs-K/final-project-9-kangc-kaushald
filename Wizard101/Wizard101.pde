@@ -6,6 +6,10 @@
   boolean statusFlag1 = true;
   boolean statusFlag2 = true;
   boolean clickFlag = true;
+  boolean schoolFlag = true;
+  boolean schoolFlag2 = false;
+  boolean statusFlag3 = true;
+  boolean statusFlag4 = true;
   int countdown;
   int countdown1;
   boolean createPlayer = false;
@@ -70,6 +74,7 @@ void draw(){
   if(!done && !done1 && !done2 && !done3) {
     if(!play){
       //message for Player 1 to select gear
+        
       if(!gearFlag2 && statusFlag1){
         textSize(48);
         text("Player 1 select gear" , 100 , 100); 
@@ -96,6 +101,13 @@ void draw(){
         gear2 = assignGear();
         gearFlag2 = false;
         createPlayer = true;
+      }
+      
+       if(!schoolFlag2 && statusFlag3){
+        textSize(48);
+        text("Player 1 select school" , 100 , 100); 
+        textSize(24);
+        displaySchool();
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
