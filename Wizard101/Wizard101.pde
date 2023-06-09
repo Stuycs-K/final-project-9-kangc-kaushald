@@ -204,43 +204,48 @@ void attack(Player player1, Player player2){
   int i = 0;
   if (keyboardInput.isPressed(Controller.P4)) {
     i = 0;
+    cast = true;
   }
   if (keyboardInput.isPressed(Controller.P5)) {
     i = 1;
+    cast = true;
   }
   if (keyboardInput.isPressed(Controller.P6)) {
     i = 2;
+    cast = true;
   } 
   if (keyboardInput.isPressed(Controller.P7)) {
     i = 3;
+    cast = true;
   }
   if (keyboardInput.isPressed(Controller.P8)) {
     i = 4;
+    cast = true;
   }
-  if (keyboardInput.isPressed(Controller.P12) && one) {
+  if (keyboardInput.isPressed(Controller.P12) && five) {
     Card discard = player2.getCard(0);
-    cast = true;
-    one = false;
+    cast = false;
+    five = false;
   }
-  if (keyboardInput.isPressed(Controller.P13) && two) {
+  if (keyboardInput.isPressed(Controller.P13) && four) {
     Card discard = player2.getCard(1);
-    cast = true;
-    two = false;
+    cast = false;
+    four = false;
   }
   if (keyboardInput.isPressed(Controller.P14) && three) {
     Card discard = player2.getCard(2);
-    cast = true;
+    cast = false;
     three = false;
   } 
-  if (keyboardInput.isPressed(Controller.P15) && four) {
+  if (keyboardInput.isPressed(Controller.P15) && two) {
     Card discard = player2.getCard(3);
-    cast = true;
-    four = false;
+    cast = false;
+    two = false;
   }
-  if (keyboardInput.isPressed(Controller.P16) && five) {
+  if (keyboardInput.isPressed(Controller.P16) && one) {
     Card discard = player2.getCard(4);
-    cast = true;
-    five = false;
+    cast = false;
+    one = false;
   }
   if (keyboardInput.isPressed(Controller.P9)) {
       clickFlag = !clickFlag;
@@ -256,7 +261,7 @@ void attack(Player player1, Player player2){
     four = true;
     five = true;
   }
-  if(keyPressed && !keyboardInput.isPressed(Controller.P9) && !cast) {
+  if(keyPressed && !keyboardInput.isPressed(Controller.P9) && cast) {
     Card spell = player2.showCard(i);
     if(spell.pips() <= player2.getPips()){
       double rand1 = Math.random();
@@ -277,12 +282,12 @@ void attack(Player player1, Player player2){
       if(player2.getPipChance() > rand){
         player2.addPip();
       }
+    }
     one = true;
     two = true;
     three = true;
     four = true;
     five = true;
-    }
   }
 }
 
@@ -325,7 +330,18 @@ void displayGear(){
 }
 
 void displayCards(Player player) {
-  for(int x = 0; x < 5; x++){
+  int counter = 0;
+  if(one)
+    counter++;
+  if(two)
+    counter++;
+  if(three)
+    counter++;
+  if(four)
+    counter++;
+  if(five)
+    counter++;
+  for(int x = 0; x < counter; x++){
     Card current = player.showCard(x);
     load = loadImage(current.getName()+ ".png");
     image(load , width/6 * (x+1) , height/2-100);
