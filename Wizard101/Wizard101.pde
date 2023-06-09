@@ -20,6 +20,11 @@
   boolean school1 = true;
   boolean school2 = false;
   boolean done3 = false;
+  PImage damage;
+  PImage health;
+  PImage resistance;
+  PImage pipchance;
+  PImage accuracy;
   
 void setup(){
   keyboardInput = new Controller();
@@ -138,15 +143,27 @@ void draw(){
         }
       }
       
-      text("Player 1 Health: "+player1.getHealth(), 100, 100);
-      text("Player 1 Damage: "+player1.getDamage(), 100, 150);
-      text("Player 1 Resistance: "+player1.getResistance(), 100, 200);
-      text("Player 1 PipChance: "+player1.getPipChance(), 100, 250);
+      text(": "+player1.getHealth(), 175, 100);
+      health = loadImage("Health.png");
+      image(health , 100 , 50);
+      text(": "+player1.getDamage(), 175, 150);
+      damage = loadImage("Damage.png");
+      image(damage , 100 , 115);
+      text(": "+player1.getResistance(), 150, 215);
+      resistance = loadImage("Resistance1.png");
+      image(resistance , 100 , 190);
+      text(": "+player1.getPipChance(), 150, 250);
+      pipchance = loadImage("PipChance.png");
+      image(pipchance , 100 , 220);
       
-      text("Player 2 Health: "+player2.getHealth(), width - 300, height - 200);
-      text("Player 2 Damage: "+player2.getDamage(), width - 300, height - 150);
-      text("Player 2 Resistance: "+player2.getResistance(), width - 300, height - 100);
-      text("Player 2 PipChance: "+player2.getPipChance(), width - 300, height - 50);  
+      text(": "+player2.getHealth(), width - 100, 100);
+       image(health , width - 175 , 50);
+      text(": "+player2.getDamage(), width - 100, 150);;
+      image(damage , width - 175 , 115);
+      text(": "+player2.getResistance(), width - 150, 215);
+      image(resistance , width - 190 , 190);
+      text(": "+player2.getPipChance(), width - 150, 250);  
+      image(pipchance , width - 190 , 220);
     }
   } else {
     text("Game Over", width/2, height/2);
@@ -311,6 +328,38 @@ void displayCards(Player player) {
   }
 }
 
+void displaySchool(){
+      text("Life" , 350 , 150);
+      text("Health" , 350 , 200);
+      text("1000" , 375 , 250);
+      text("Damage" , 350 , 300);
+      text("1.05" , 375 , 350);
+      text("Resistance" , 350 , 400);
+      text("1.05" , 375 , 450);
+      text("PipChance" , 350 , 500);
+      text(".2" , 375 , 550);
+      text("Storm" , 500 , 150);
+      text("Health" , 500 , 200);
+      text("800" , 525 , 250);
+      text("Damage" , 500 , 300);
+      text("1.3" , 525 , 350);
+      text("Resistance" , 500 , 400);
+      text("1.0" , 525 , 450);
+      text("PipChance" , 500 , 500);
+      text(".2" , 500  , 550);
+      line(325 , 150 , 475 , 150);
+      line(325 , 150 , 325 , 500);
+      line(325 , 500 , 475 , 500);
+      line(475 , 150 , 475 , 500);
+      line(475 , 150 , 625 , 150);
+      line(475 , 150 , 475 , 500);
+      line(475 , 500 , 625 , 500);
+      line(625 , 150 , 625 , 500);
+      line(625 , 150 , 775 , 150);
+      line(625 , 150 , 625 , 500);
+      line(625 , 500 , 775 , 500);
+      line(775 , 150 , 775 , 500);
+}
 
 //Keyboard Setup
 Controller keyboardInput;
