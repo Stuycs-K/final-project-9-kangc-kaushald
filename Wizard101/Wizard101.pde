@@ -222,30 +222,30 @@ void attack(Player player1, Player player2){
     i = 4;
     cast = true;
   }
-  if (keyboardInput.isPressed(Controller.P12) && one) {
+  if (keyboardInput.isPressed(Controller.P12) && five) {
     Card discard = player2.getCard(0);
     cast = false;
-    one = false;
+    five = false;
   }
-  if (keyboardInput.isPressed(Controller.P13) && two) {
+  if (keyboardInput.isPressed(Controller.P13) && four) {
     Card discard = player2.getCard(1);
     cast = false;
-    two = false;
+    four = false;
   }
   if (keyboardInput.isPressed(Controller.P14) && three) {
     Card discard = player2.getCard(2);
     cast = false;
     three = false;
   } 
-  if (keyboardInput.isPressed(Controller.P15) && four) {
+  if (keyboardInput.isPressed(Controller.P15) && two) {
     Card discard = player2.getCard(3);
     cast = false;
-    four = false;
+    two = false;
   }
-  if (keyboardInput.isPressed(Controller.P16) && five) {
+  if (keyboardInput.isPressed(Controller.P16) && one) {
     Card discard = player2.getCard(4);
     cast = false;
-    five = false;
+    one = false;
   }
   if (keyboardInput.isPressed(Controller.P9)) {
       clickFlag = !clickFlag;
