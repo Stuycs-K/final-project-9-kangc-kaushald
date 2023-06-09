@@ -367,10 +367,16 @@ class Controller {
   static final int P9 = 8;
   static final int P10 = 9;
   static final int P11 = 10;
+  static final int P12 = 11;
+  static final int P13 = 12;
+  static final int P14 = 13;
+  static final int P15 = 14;
+  static final int P16 = 15;
+  
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[11];
+    inputs = new boolean[16];
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -402,6 +408,16 @@ class Controller {
       inputs[P10] = true;
      if(code == 'S')
       inputs[P11] = true;
+     if(code == 'Z')
+      inputs[P12] = true;
+     if(code == 'X')
+      inputs[P13] = true;
+     if(code == 'C')
+      inputs[P14] = true;
+     if(code == 'V')
+      inputs[P15] = true;
+     if(code == 'B')
+      inputs[P16] = true;
   }
   void release(int code) {
     if(code == 'D')
@@ -426,5 +442,15 @@ class Controller {
       inputs[P10] = false;
     if(code == 'S')
       inputs[P10] = false;
+     if(code == 'Z')
+      inputs[P12] = false;
+     if(code == 'X')
+      inputs[P13] = false;
+     if(code == 'C')
+      inputs[P14] = false;
+     if(code == 'V')
+      inputs[P15] = false;
+     if(code == 'B')
+      inputs[P16] = false;
   }
 }
