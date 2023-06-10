@@ -8,7 +8,6 @@ public class Player{
   ArrayList<Card> deck = new ArrayList<Card>();
   float pipChance;
   int[] support = new int[2];
-  float multiplier;
   
   public Player(){
     
@@ -35,10 +34,6 @@ public class Player{
   
   public float getPipChance() {
     return pipChance;
-  }
-  
-  public float getMultiplier() {
-    return multiplier;
   }
   
   public int deckSize() {
