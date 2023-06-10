@@ -27,9 +27,6 @@ public class Ice extends School{
     for(int i = 0; i < 30; i++){
       newDeck.add(new Colossus());
     }  
-    for(int i = 0; i < 10; i++){
-      newDeck.add(new Triton());
-    }
     Collections.shuffle(newDeck);
     return newDeck;
   }
