@@ -5,6 +5,7 @@ public class Life extends School{
     super(gear);
     schoolType = "Life";
     health = 1000 + gear.getHealth();
+    maxHealth = 1000 + gear.getHealth();
     damage = 1.05 + gear.getDamage();
     resistance = 1.05 + gear.getResistance();
     deck = createDeck();
