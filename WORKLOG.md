@@ -138,8 +138,23 @@ info
 //implemented a random integer that will be generated for every new Card and add on to the base damage
 
 ## date 6/7/23
+info
 //added an accuracy instance variable which gives the card the ability to fizzle if the user get unlucky
 //added accuracy stats to all Cards and changed Card constructor accordingly
 //edited the displayCards method to highlight the Press prompts as green when the Card can be used and red when it cannot be used
 //edited the attack method to use the accuracy stat and flash the screen red when a Player fizzles
 //fixed the power pip random logic, it was doing the opposite as intended before
+
+## date 6/8/23
+info
+//tried to add a feature where the user can select their Player's school(unsuccessful)
+//added a displaySchool method that shows the stats of each SchoolType
+//started to work on the discard feature which allows the user to get rid of Cards in the Player's hand
+
+## date 6/9/23
+info
+//updated the logic for discard by adding the cast flag which changes as Cards are used/removed
+//added counter variables to fix discard logic(works)
+//added a support array instance variable to Player which keeps track of shields and blades
+//edited the Card class to have multiplier instance variable, thinking of getting rid of the CardSuperClass
+//added shield and blade accessor and mutator methods to test and use them in battle
