@@ -342,6 +342,9 @@ void attack(Player player1, Player player2){
       spell = player2.getCard(i);
       player2.setHealth(player2.getHealth() - spell.getDamage());
       player2.setPips(player2.getPips() - spell.pips());
+      if(player2.getHealth() > player2.maxHealth()){
+        player2.setHealth(player2.maxHealth());
+      }
     } else {
       if(spell.getDamage() == 0){
         if(spell.getMultiplier() == .5){
