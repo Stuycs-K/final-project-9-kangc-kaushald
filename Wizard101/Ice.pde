@@ -12,21 +12,27 @@ public class Ice extends School{
   
   public ArrayList<Card> createDeck(){
     ArrayList<Card> newDeck = new ArrayList<Card>();
-    for(int i = 0; i < 60; i++){
+    for(int x = 0; x < 4; x++){
       newDeck.add(new FrostBeetle());
     }
-    for(int i = 0; i < 50; i++){
+    for(int x = 0; x < 3; x++){
       newDeck.add(new SnowSerpent());
     }
-    for(int i = 0; i < 40; i++){
+    for(int x = 0; x < 3; x++){
       newDeck.add(new EvilSnowman());
     }
-    for(int i = 0; i < 20; i++){
+    for(int x = 0; x < 2; x++){
       newDeck.add(new IcyWyvern());
-    }
-    for(int i = 0; i < 30; i++){
-      newDeck.add(new Colossus());
     }  
+    for(int x = 0; x < 1; x++){
+      newDeck.add(new Colossus());
+    }
+    //for(int x = 0; x < 3; x++){
+    //  newDeck.add(new Shield());
+    //}
+    //for(int x = 0; x < 3; x++){
+    //  newDeck.add(new Blade());
+    //}
     Collections.shuffle(newDeck);
     return newDeck;
   }
