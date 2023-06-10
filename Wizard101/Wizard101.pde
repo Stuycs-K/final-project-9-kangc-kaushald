@@ -458,17 +458,28 @@ void displayGear(){
 }
 
 void displayCards(Player player) {
+  ArrayList<String> words = new ArrayList<String>();
   int counter = 0;
-  if(one)
+  if(one){
     counter++;
-  if(two)
+    words.add(0,"B");
+  }
+  if(two){
     counter++;
-  if(three)
+    words.add(0,"V");
+  }
+  if(three){
     counter++;
-  if(four)
+    words.add(0,"C");
+  }
+  if(four){
     counter++;
-  if(five)
+    words.add(0,"X");
+  }
+  if(five){
     counter++;
+    words.add(0,"Z");
+  }
   for(int x = 0; x < counter; x++){
     Card current = player.showCard(x);
     load = loadImage(current.getName()+ ".png");
@@ -478,8 +489,9 @@ void displayCards(Player player) {
     } else {
       fill(0,255,0);
     }
-    text("Press " + (x+1) , width/6 * (x+1)+25 , height/2+125);
+    text("Use: " + (x+1) , width/6 * (x+1)+25 , height/2+125);
     fill(0);
+    text("Discard: " + words.get(x), width/6 * (x+1)+25, height/2+150);
   }
 }
 
