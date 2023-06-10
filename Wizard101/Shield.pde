@@ -1,5 +1,6 @@
-public class Shield extends SupportCard{
+public class Shield extends Card{
   public Shield(){
-    super(.5);
+    super(0, 0, 1);
+    multiplier = .5;
   }
 }

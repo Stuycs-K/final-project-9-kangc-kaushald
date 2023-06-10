@@ -4,6 +4,8 @@ public class Card extends CardSuperClass{
   String name;
   PImage image;
   float accuracy;
+  float multiplier;
+  
   Card(int damage, int pips, float accuracy){
     this.damage = damage;
     this.pips = pips;
@@ -23,5 +25,8 @@ public class Card extends CardSuperClass{
   }
   void boostDamage(int buff){
     damage += buff;
+  }
+  public float getMultiplier() {
+    return multiplier;
   }
 }
