@@ -22,7 +22,7 @@
   boolean done2 = false;
   PImage load;
   boolean school1 = true;
-  boolean school2 = false;
+  boolean school2 = true;
   boolean done3 = false;
   PImage damage;
   PImage health;
@@ -44,6 +44,8 @@
   boolean life2 = false;
   boolean storm1 = false;
   boolean storm2 = false;
+  boolean ice1 = false
+  boolean ice2 = false;
   
 void setup(){
   keyboardInput = new Controller();
@@ -82,12 +84,11 @@ void draw(){
   
   if(!done && !done1 && !done2 && !done3) {
     if(!play){
-      //message for Player 1 to select gear
-        
       if(!gearFlag2 && statusFlag1){
         if(school1){
           textSize(48);
           text("Player 1 select school", 100, 100);
+          displaySchool();
           if (keyboardInput.isPressed(Controller.P10)) {
             life1 = true;
             school1 = false;
@@ -105,29 +106,40 @@ void draw(){
           displayGear();
         }
       }
-      //Player 1 selects gear
       if(gearFlag1 && keyPressed && !school1 && countdown == 0){
         gear1 = assignGear();
         gearFlag1 = false;
         gearFlag2 = true;
         countdown += 120;
       }
-      //message for Player 2 to select gear
       if(gearFlag2 && statusFlag2){
+        if(school2){
+          textSize(48);
+          text("Player 2 select school", 100, 100);
+          displaySchool();
+          if (keyboardInput.isPressed(Controller.P10)) {
+            life2 = true;
+            school2 = false;
+            countdown += 60;
+          }
+          if (keyboardInput.isPressed(Controller.P11)) {
+            storm2 = true;
+            school2 = false;
+            countdown += 60;
+          }
+        } else {
         textSize(48);
         text("Player 2 select gear" , 100 , 100); 
         textSize(24);
         displayGear();
         statusFlag1 = true;
+        }
       }
-      //Player 2 selects gear
-      if(gearFlag2 && keyPressed && countdown == 0){
+      if(gearFlag2 && keyPressed && countdown == 0 && !school2){
         gear2 = assignGear();
         gearFlag2 = false;
         createPlayer = true;
       }
-      
-      //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
         if(life1){
           player1 = new Life(gear1);
@@ -135,13 +147,16 @@ void draw(){
         if(storm1){
           player1 = new Storm(gear1);
         }
-        //player1 = new Ice(gear1);
-        player2 = new Ice(gear2);
+        if(life2){
+          player2 = new Life(gear2);
+        }
+        if(storm2){
+          player2 = new Storm(gear2);
+        }
         play = true;
         countdown += 120;
       }
-   } else {
-        
+   } else { 
       if(!clickFlag) {
          displayCards(player2);
          fill(255,0,255);
@@ -493,11 +508,13 @@ class Controller {
   static final int P14 = 13;
   static final int P15 = 14;
   static final int P16 = 15;
+  static final int P17 = 16;
+  static final int P18 = 17;
   
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[16];
+    inputs = new boolean[18];
   }
 
   /**@param code: a valid constant e.g. P1_LEFT
@@ -539,6 +556,10 @@ class Controller {
       inputs[P15] = true;
      if(code == 'B')
       inputs[P16] = true;
+     if(code == 'I')
+      inputs[P17] = true;
+     if(code == 'M')
+      inputs[P18] = true;
   }
   void release(int code) {
     if(code == 'D')
@@ -573,5 +594,9 @@ class Controller {
       inputs[P15] = false;
      if(code == 'B')
       inputs[P16] = false;
+     if(code == 'I')
+      inputs[P17] = true;
+     if(code == 'M')
+      inputs[P18] = true;
   }
 }
