@@ -1,4 +1,4 @@
- import java.util.*;
+  import java.util.*;
   Gear gear1 = new Gear(0, 0, 0, 0);
   Gear gear2 = new Gear(0, 0, 0, 0);
   boolean gearFlag1 = true;
@@ -294,18 +294,35 @@ void attack(Player player1, Player player2){
   }
   if(keyPressed && !keyboardInput.isPressed(Controller.P9) && cast) {
     Card spell = player2.showCard(i);
-    if(spell.pips() <= player2.getPips()){
-      double rand1 = Math.random();
-      if(spell.getAccuracy() > rand1){
-        spell = player2.getCard(i);
-        int damage = (int)(spell.getDamage() * player2.getDamage());
-        damage /= player1.getResistance();
-        player1.setHealth(player1.getHealth() - damage);
-        player2.setPips(player2.getPips() - spell.pips());
+    if(spell.getDamage() == 0){
+      if(spell.getMultiplier() == .5){
+        player2.addShield();
       } else {
-        background(255, 0, 0);
-        spell = player2.getCard(i);
+        player2.addBlade();
       }
+    } else { 
+      if(spell.pips() <= player2.getPips()){
+        double rand1 = Math.random();
+        if(spell.getAccuracy() > rand1){
+          spell = player2.getCard(i);
+          int damage = (int)(spell.getDamage() * player2.getDamage());
+          damage /= player1.getResistance();
+          if(player2.getBlade() > 0){
+            damage *= 1.4;
+            player2.removeBlade();
+          }
+          if(player1.getShield() > 0){
+            damage *= .5;
+            player1.removeShield();
+          }
+          player1.setHealth(player1.getHealth() - damage);
+          player2.setPips(player2.getPips() - spell.pips());
+        } else {
+          background(255, 0, 0);
+          spell = player2.getCard(i);
+        }
+      }
+    }
       clickFlag = !clickFlag;
       countdown += 120;
       player2.addPip();
@@ -313,7 +330,6 @@ void attack(Player player1, Player player2){
       if(player2.getPipChance() > rand){
         player2.addPip();
       }
-    }
     one = true;
     two = true;
     three = true;
@@ -382,7 +398,7 @@ void displayCards(Player player) {
     counter++;
   if(five)
     counter++;
-  for(int x = 0; x < 5; x++){
+  for(int x = 0; x < counter; x++){
     Card current = player.showCard(x);
     load = loadImage(current.getName()+ ".png");
     image(load , width/6 * (x+1) , height/2-100);
