@@ -112,8 +112,8 @@ void draw(){
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        player1 = new Life(gear1);
-        player2 = new Life(gear2);
+        player1 = new Ice(gear1);
+        player2 = new Ice(gear2);
         play = true;
         countdown += 120;
       }
@@ -214,6 +214,10 @@ public School assignSchool(Gear gear){
 
 void attack(Player player1, Player player2){
   int i = 0;
+  int counter1 = 0;
+  int counter2 = 0;
+  int counter3 = 0;
+  int counter4 = 0;
   if (keyboardInput.isPressed(Controller.P4)) {
     i = 0;
     cast = true;
@@ -238,24 +242,34 @@ void attack(Player player1, Player player2){
     Card discard = player2.getCard(0);
     cast = false;
     five = false;
+    counter1++;
+    counter2++;
+    counter3++;
+    counter4++;
   }
   if (keyboardInput.isPressed(Controller.P13) && four) {
-    Card discard = player2.getCard(1);
+    Card discard = player2.getCard(1-counter4);
     cast = false;
     four = false;
+    counter1++;
+    counter2++;
+    counter3++;
   }
   if (keyboardInput.isPressed(Controller.P14) && three) {
-    Card discard = player2.getCard(2);
+    Card discard = player2.getCard(2-counter3);
     cast = false;
     three = false;
+    counter1++;
+    counter2++;
   } 
   if (keyboardInput.isPressed(Controller.P15) && two) {
-    Card discard = player2.getCard(3);
+    Card discard = player2.getCard(3-counter2);
     cast = false;
     two = false;
+    counter1++;
   }
   if (keyboardInput.isPressed(Controller.P16) && one) {
-    Card discard = player2.getCard(4);
+    Card discard = player2.getCard(4-counter1);
     cast = false;
     one = false;
   }
@@ -272,6 +286,10 @@ void attack(Player player1, Player player2){
     three = true;
     four = true;
     five = true;
+    counter1 = 0;
+    counter2 = 0;
+    counter3 = 0;
+    counter4 = 0;
   }
   if(keyPressed && !keyboardInput.isPressed(Controller.P9) && cast) {
     Card spell = player2.showCard(i);
@@ -300,6 +318,10 @@ void attack(Player player1, Player player2){
     three = true;
     four = true;
     five = true;
+    counter1 = 0;
+    counter2 = 0;
+    counter3 = 0;
+    counter4 = 0;
   }
 }
 
