@@ -31,10 +31,10 @@ public class Storm extends School{
     for(int x = 0; x < 1; x++){
       newDeck.add(new Triton());
     }
-    for(int x = 0; x < 3; x++){
+    for(int x = 0; x < 2; x++){
       newDeck.add(new Shield());
     }
-    for(int x = 0; x < 3; x++){
+    for(int x = 0; x < 5; x++){
       newDeck.add(new Blade());
     }
     Collections.shuffle(newDeck);
