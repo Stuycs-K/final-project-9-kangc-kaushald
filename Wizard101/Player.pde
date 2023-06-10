@@ -1,5 +1,6 @@
 public class Player{
   int health;
+  int maxHealth;
   int pips = 1;
   float damage;
   float resistance;
@@ -38,6 +39,10 @@ public class Player{
   
   public int deckSize() {
     return deck.size();
+  }
+  
+  public int maxHealth() {
+    return maxHealth;
   }
   
   public Card showCard(int index) {
