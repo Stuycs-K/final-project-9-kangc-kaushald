@@ -40,6 +40,10 @@
   int counter2 = 0;
   int counter3 = 0;
   int counter4 = 0;
+  boolean life1 = false;
+  boolean life2 = false;
+  boolean storm1 = false;
+  boolean storm2 = false;
   
 void setup(){
   keyboardInput = new Controller();
@@ -81,13 +85,28 @@ void draw(){
       //message for Player 1 to select gear
         
       if(!gearFlag2 && statusFlag1){
-        textSize(48);
-        text("Player 1 select gear" , 100 , 100); 
-        textSize(24);
-        displayGear();
+        if(school1){
+          textSize(48);
+          text("Player 1 select school", 100, 100);
+          if (keyboardInput.isPressed(Controller.P10)) {
+            life1 = true;
+            school1 = false;
+            countdown += 60;
+          }
+          if (keyboardInput.isPressed(Controller.P11)) {
+            storm1 = true;
+            school1 = false;
+            countdown += 60;
+          }
+        } else {
+          textSize(48);
+          text("Player 1 select gear" , 100 , 100); 
+          textSize(24);
+          displayGear();
+        }
       }
       //Player 1 selects gear
-      if(gearFlag1 && keyPressed){
+      if(gearFlag1 && keyPressed && !school1 && countdown == 0){
         gear1 = assignGear();
         gearFlag1 = false;
         gearFlag2 = true;
@@ -108,15 +127,15 @@ void draw(){
         createPlayer = true;
       }
       
-       if(!schoolFlag2 && statusFlag3){
-        textSize(48);
-        text("Player 1 select school" , 100 , 100); 
-        textSize(24);
-        displaySchool();
-      }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        player1 = new Ice(gear1);
+        if(life1){
+          player1 = new Life(gear1);
+        }
+        if(storm1){
+          player1 = new Storm(gear1);
+        }
+        //player1 = new Ice(gear1);
         player2 = new Ice(gear2);
         play = true;
         countdown += 120;
