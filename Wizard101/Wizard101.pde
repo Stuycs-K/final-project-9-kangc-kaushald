@@ -44,7 +44,7 @@
   boolean life2 = false;
   boolean storm1 = false;
   boolean storm2 = false;
-  boolean ice1 = false
+  boolean ice1 = false;
   boolean ice2 = false;
   
 void setup(){
@@ -99,6 +99,11 @@ void draw(){
             school1 = false;
             countdown += 60;
           }
+          if (keyboardInput.isPressed(Controller.P17)) {
+            ice1 = true;
+            school1 = false;
+            countdown += 60;
+          }
         } else {
           textSize(48);
           text("Player 1 select gear" , 100 , 100); 
@@ -127,6 +132,11 @@ void draw(){
             school2 = false;
             countdown += 60;
           }
+          if (keyboardInput.isPressed(Controller.P17)) {
+            ice2 = true;
+            school2 = false;
+            countdown += 60;
+          }
         } else {
         textSize(48);
         text("Player 2 select gear" , 100 , 100); 
@@ -141,18 +151,18 @@ void draw(){
         createPlayer = true;
       }
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        if(life1){
+        if(life1)
           player1 = new Life(gear1);
-        }
-        if(storm1){
+        if(storm1)
           player1 = new Storm(gear1);
-        }
-        if(life2){
+        if(ice1)
+          player1 = new Ice(gear1);
+        if(life2)
           player2 = new Life(gear2);
-        }
-        if(storm2){
+        if(storm2)
           player2 = new Storm(gear2);
-        }
+        if(ice2)
+          player2 = new Ice(gear2);
         play = true;
         countdown += 120;
       }
@@ -584,7 +594,7 @@ class Controller {
     if(code == 'L')
       inputs[P10] = false;
     if(code == 'S')
-      inputs[P10] = false;
+      inputs[P11] = false;
      if(code == 'Z')
       inputs[P12] = false;
      if(code == 'X')
