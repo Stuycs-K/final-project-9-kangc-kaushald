@@ -36,6 +36,10 @@
   boolean three = true;
   boolean four = true;
   boolean five = true;
+  int counter1 = 0;
+  int counter2 = 0;
+  int counter3 = 0;
+  int counter4 = 0;
   
 void setup(){
   keyboardInput = new Controller();
@@ -214,10 +218,6 @@ public School assignSchool(Gear gear){
 
 void attack(Player player1, Player player2){
   int i = 0;
-  int counter1 = 0;
-  int counter2 = 0;
-  int counter3 = 0;
-  int counter4 = 0;
   if (keyboardInput.isPressed(Controller.P4)) {
     i = 0;
     cast = true;
@@ -241,11 +241,12 @@ void attack(Player player1, Player player2){
   if (keyboardInput.isPressed(Controller.P12) && five) {
     Card discard = player2.getCard(0);
     cast = false;
-    five = false;
     counter1++;
     counter2++;
     counter3++;
     counter4++;
+    five = false;
+
   }
   if (keyboardInput.isPressed(Controller.P13) && four) {
     Card discard = player2.getCard(1-counter4);
@@ -381,7 +382,7 @@ void displayCards(Player player) {
     counter++;
   if(five)
     counter++;
-  for(int x = 0; x < counter; x++){
+  for(int x = 0; x < 5; x++){
     Card current = player.showCard(x);
     load = loadImage(current.getName()+ ".png");
     image(load , width/6 * (x+1) , height/2-100);
