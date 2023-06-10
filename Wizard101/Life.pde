@@ -18,6 +18,9 @@ public class Life extends School{
       newDeck.add(new Imp());
     }
     for(int x = 0; x < 3; x++){
+      newDeck.add(new Pixie());
+    }
+    for(int x = 0; x < 3; x++){
       newDeck.add(new Leprechaun());
     }
     for(int x = 0; x < 2; x++){
@@ -32,12 +35,12 @@ public class Life extends School{
     for(int x = 0; x < 1; x++){
       newDeck.add(new Centaur());
     }
-    //for(int x = 0; x < 3; x++){
-    //  newDeck.add(new Shield());
-    //}
-    //for(int x = 0; x < 3; x++){
-    //  newDeck.add(new Blade());
-    //}
+    for(int x = 0; x < 3; x++){
+      newDeck.add(new Shield());
+    }
+    for(int x = 0; x < 3; x++){
+      newDeck.add(new Blade());
+    }
     Collections.shuffle(newDeck);
     return newDeck;
   }
