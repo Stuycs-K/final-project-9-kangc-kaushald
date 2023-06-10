@@ -88,6 +88,14 @@ public class Player{
     return support[1];
   }
   
+  public void removeShield(){
+    support[0] = support[0] - 1;
+  }
+  
+  public void removeBlade(){
+    support[1] = support[1] - 1;
+  }
+  
 public String healthbar(int current , int health){
   String result = "";
   result += "" + current + "/" + health;
