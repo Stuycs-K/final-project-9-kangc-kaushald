@@ -7,6 +7,7 @@ public class Player{
   String schoolType;
   ArrayList<Card> deck = new ArrayList<Card>();
   float pipChance;
+  int[] support = new int[2];
   
   public Player(){
     
