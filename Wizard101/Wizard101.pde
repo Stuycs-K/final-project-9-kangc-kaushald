@@ -1,4 +1,4 @@
- import java.util.*;
+  import java.util.*;
   Gear gear1 = new Gear(0, 0, 0, 0);
   Gear gear2 = new Gear(0, 0, 0, 0);
   boolean gearFlag1 = true;
@@ -36,6 +36,10 @@
   boolean three = true;
   boolean four = true;
   boolean five = true;
+  int counter1 = 0;
+  int counter2 = 0;
+  int counter3 = 0;
+  int counter4 = 0;
   
 void setup(){
   keyboardInput = new Controller();
@@ -112,8 +116,8 @@ void draw(){
       }
       //create the players with gear they chose
       if(createPlayer && !gearFlag1 && !gearFlag2 && !play){
-        player1 = new Life(gear1);
-        player2 = new Life(gear2);
+        player1 = new Ice(gear1);
+        player2 = new Ice(gear2);
         play = true;
         countdown += 120;
       }
@@ -237,25 +241,36 @@ void attack(Player player1, Player player2){
   if (keyboardInput.isPressed(Controller.P12) && five) {
     Card discard = player2.getCard(0);
     cast = false;
+    counter1++;
+    counter2++;
+    counter3++;
+    counter4++;
     five = false;
+
   }
   if (keyboardInput.isPressed(Controller.P13) && four) {
-    Card discard = player2.getCard(1);
+    Card discard = player2.getCard(1-counter4);
     cast = false;
     four = false;
+    counter1++;
+    counter2++;
+    counter3++;
   }
   if (keyboardInput.isPressed(Controller.P14) && three) {
-    Card discard = player2.getCard(2);
+    Card discard = player2.getCard(2-counter3);
     cast = false;
     three = false;
+    counter1++;
+    counter2++;
   } 
   if (keyboardInput.isPressed(Controller.P15) && two) {
-    Card discard = player2.getCard(3);
+    Card discard = player2.getCard(3-counter2);
     cast = false;
     two = false;
+    counter1++;
   }
   if (keyboardInput.isPressed(Controller.P16) && one) {
-    Card discard = player2.getCard(4);
+    Card discard = player2.getCard(4-counter1);
     cast = false;
     one = false;
   }
@@ -272,21 +287,42 @@ void attack(Player player1, Player player2){
     three = true;
     four = true;
     five = true;
+    counter1 = 0;
+    counter2 = 0;
+    counter3 = 0;
+    counter4 = 0;
   }
   if(keyPressed && !keyboardInput.isPressed(Controller.P9) && cast) {
     Card spell = player2.showCard(i);
-    if(spell.pips() <= player2.getPips()){
-      double rand1 = Math.random();
-      if(spell.getAccuracy() > rand1){
-        spell = player2.getCard(i);
-        int damage = (int)(spell.getDamage() * player2.getDamage());
-        damage /= player1.getResistance();
-        player1.setHealth(player1.getHealth() - damage);
-        player2.setPips(player2.getPips() - spell.pips());
+    if(spell.getDamage() == 0){
+      if(spell.getMultiplier() == .5){
+        player2.addShield();
       } else {
-        background(255, 0, 0);
-        spell = player2.getCard(i);
+        player2.addBlade();
       }
+    } else { 
+      if(spell.pips() <= player2.getPips()){
+        double rand1 = Math.random();
+        if(spell.getAccuracy() > rand1){
+          spell = player2.getCard(i);
+          int damage = (int)(spell.getDamage() * player2.getDamage());
+          damage /= player1.getResistance();
+          if(player2.getBlade() > 0){
+            damage *= 1.4;
+            player2.removeBlade();
+          }
+          if(player1.getShield() > 0){
+            damage *= .5;
+            player1.removeShield();
+          }
+          player1.setHealth(player1.getHealth() - damage);
+          player2.setPips(player2.getPips() - spell.pips());
+        } else {
+          background(255, 0, 0);
+          spell = player2.getCard(i);
+        }
+      }
+    }
       clickFlag = !clickFlag;
       countdown += 120;
       player2.addPip();
@@ -294,12 +330,15 @@ void attack(Player player1, Player player2){
       if(player2.getPipChance() > rand){
         player2.addPip();
       }
-    }
     one = true;
     two = true;
     three = true;
     four = true;
     five = true;
+    counter1 = 0;
+    counter2 = 0;
+    counter3 = 0;
+    counter4 = 0;
   }
 }
 

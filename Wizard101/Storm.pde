@@ -13,24 +13,30 @@ public class Storm extends School{
   
   public ArrayList<Card> createDeck(){
     ArrayList<Card> newDeck = new ArrayList<Card>();
-    for(int i = 0; i < 60; i++){
+    for(int x = 0; x < 4; x++){
       newDeck.add(new ThunderSnake());
     }
-    for(int i = 0; i < 50; i++){
+    for(int x = 0; x < 3; x++){
       newDeck.add(new LightningBats());
     }
-    for(int i = 0; i < 40; i++){
+    for(int x = 0; x < 2; x++){
       newDeck.add(new StormShark());
     }
-    for(int i = 0; i < 20; i++){
-      newDeck.add(new Kraken());
-    }
-    for(int i = 0; i < 30; i++){
+    for(int x = 0; x < 2; x++){
       newDeck.add(new Stormzilla());
+    }
+    for(int x = 0; x < 3; x++){
+      newDeck.add(new Kraken());
     }  
-    for(int i = 0; i < 10; i++){
+    for(int x = 0; x < 1; x++){
       newDeck.add(new Triton());
     }
+    //for(int x = 0; x < 3; x++){
+    //  newDeck.add(new Shield());
+    //}
+    //for(int x = 0; x < 3; x++){
+    //  newDeck.add(new Blade());
+    //}
     Collections.shuffle(newDeck);
     return newDeck;
   }

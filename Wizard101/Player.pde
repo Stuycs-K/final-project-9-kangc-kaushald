@@ -7,6 +7,7 @@ public class Player{
   String schoolType;
   ArrayList<Card> deck = new ArrayList<Card>();
   float pipChance;
+  int[] support = new int[2];
   
   public Player(){
     
@@ -69,6 +70,30 @@ public class Player{
   
     public void removePip(){
     pips -= 1;
+  }
+  
+  public void addShield(){
+    support[0] = support[0] + 1;
+  }
+  
+  public void addBlade(){
+    support[1] = support[1] + 1;
+  }
+  
+  public int getShield(){
+    return support[0];
+  }
+  
+  public int getBlade(){
+    return support[1];
+  }
+  
+  public void removeShield(){
+    support[0] = support[0] - 1;
+  }
+  
+  public void removeBlade(){
+    support[1] = support[1] - 1;
   }
   
 public String healthbar(int current , int health){
