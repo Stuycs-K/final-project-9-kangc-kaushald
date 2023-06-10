@@ -221,9 +221,9 @@ void draw(){
       image(resistance , width - 190 , 190);
       text(": "+player2.getPipChance(), width - 150, 250);  
       image(pipchance , width - 190 , 220);
-       text(": "+player1.getShield() , width - 200 , 100);
+       text(": "+player2.getShield() , width - 200 , 100);
        image(shield , width - 225 , 75);
-       text(": "+player1.getBlade() , width - 200 , 150);
+       text(": "+player2.getBlade() , width - 200 , 150);
        image(blade , width - 225 , 125);
     }
   } else {
@@ -364,8 +364,10 @@ void attack(Player player1, Player player2){
       if(spell.getDamage() == 0){
         if(spell.getMultiplier() == .5){
           player2.addShield();
+          player2.getCard(i);
         } else {
           player2.addBlade();
+          player2.getCard(i);
         }
       } else { 
         if(spell.pips() <= player2.getPips()){
@@ -375,7 +377,7 @@ void attack(Player player1, Player player2){
             int damage = (int)(spell.getDamage() * player2.getDamage());
             damage /= player1.getResistance();
             if(player2.getBlade() > 0){
-              damage *= 1.4;
+              damage *= 1.25;
               player2.removeBlade();
             }
             if(player1.getShield() > 0){
@@ -478,21 +480,6 @@ void displayCards(Player player) {
     }
     text("Press " + (x+1) , width/6 * (x+1)+25 , height/2+125);
     fill(0);
-     if(x+1 == 1){
-      text("Press Z to discard" , width/6 * (x+1) , height/2+150);
-    }
-     if(x+1 == 2){
-      text("Press X to discard" , width/6 * (x+1) , height/2+150);
-    }
-     if(x+1 == 3){
-      text("Press C to discard" , width/6 * (x+1) , height/2+150);
-    }
-     if(x+1 == 4){
-      text("Press V to discard" , width/6 * (x+1) , height/2+150);
-    }
-     if(x+1 == 5){
-      text("Press B to discard" , width/6 * (x+1) , height/2+150);
-    }
   }
 }
 
@@ -658,8 +645,8 @@ class Controller {
      if(code == 'B')
       inputs[P16] = false;
      if(code == 'I')
-      inputs[P17] = true;
+      inputs[P17] = false;
      if(code == 'M')
-      inputs[P18] = true;
+      inputs[P18] = false;
   }
 }
