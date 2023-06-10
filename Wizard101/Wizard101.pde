@@ -418,6 +418,7 @@ void displayGear(){
       line(625 , 150 , 625 , 600);
       line(625 , 600 , 775 , 600);
       line(775 , 150 , 775 , 600);
+      
 }
 
 void displayCards(Player player) {
