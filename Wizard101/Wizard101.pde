@@ -29,6 +29,7 @@
   PImage resistance;
   PImage pipchance;
   PImage accuracy;
+  PImage gameover;
   boolean cast = false;
   boolean one = true;
   boolean two = true;
@@ -166,23 +167,22 @@ void draw(){
       image(pipchance , width - 190 , 220);
     }
   } else {
-    text("Game Over", width/2, height/2);
+    gameover = loadImage("Game Over.png");
+    image(gameover , width/2 - 128 , height/2 - 128);
     if(done){
       if(player1.getHealth() < player2.getHealth()) {
-        text("Player 2 Wins", width/2, height/2 - 50);
-        text("Player 1 has no health", width/2, height/2 + 50);
+        text("Player 1 has no health", width/2-120, height/2 + 150);
       } else {
-        text("Player 1 Wins", width/2, height/2 - 50);
-        text("Player 2 has no health", width/2, height/2 + 50);
+        text("Player 2 has no health", width/2-120, height/2 + 150);
       }
     }
     if(done1){
-      text("Player 2 Wins", width/2, height/2 - 50);
-      text("Player 1 ran out of cards", width/2, height/2 + 50);
+      //text("Player 2 Wins", width/2, height/2 - 50);
+      text("Player 1 ran out of cards", width/2 - 120, height/2 + 150);
     }
     if(done2){
-      text("Player 1 Wins", width/2, height/2 - 50);
-      text("Player 2 ran out of cards", width/2, height/2 + 50);
+      //text("Player 1 Wins", width/2, height/2 - 50);
+      text("Player 2 ran out of cards", width/2 - 120, height/2 + 150);
     }
   }
 }
@@ -305,35 +305,41 @@ void displayGear(){
       text(".2" , 375 , 350);
       text("Resistance" , 350 , 400);
       text(".05" , 375 , 450);
+       text("PipChance" , 350 , 500);
+      text(".3" , 375 , 550);
       text("Health" , 500 , 200);
       text("300" , 525 , 250);
       text("Damage" , 500 , 300);
       text(".05" , 525 , 350);
       text("Resistance" , 500 , 400);
       text(".2" , 525 , 450);
+      text("PipChance" , 500 , 500);
+      text(".1" , 525 , 550);
       text("Health" , 650 , 200);
       text("200" , 675 , 250);
       text("Damage" , 650 , 300);
       text(".1" , 675 , 350);
       text("Resistance" , 650 , 400);
       text(".1" , 675 , 450);
+      text("PipChance" , 650 , 500);
+      text(".2" , 675  , 550);
       fill(255, 0, 255);
-      text("Press D", 375, 500);
-      text("Press E", 675, 500);
-      text("Press R" , 525, 500);
+      text("Press D", 350, 600);
+      text("Press E", 650, 600);
+      text("Press R" , 500, 600);
       fill(0);
       line(325 , 150 , 475 , 150);
-      line(325 , 150 , 325 , 500);
-      line(325 , 500 , 475 , 500);
-      line(475 , 150 , 475 , 500);
+      line(325 , 150 , 325 , 600);
+      line(325 , 600 , 475 , 600);
+      line(475 , 150 , 475 , 600);
       line(475 , 150 , 625 , 150);
-      line(475 , 150 , 475 , 500);
-      line(475 , 500 , 625 , 500);
-      line(625 , 150 , 625 , 500);
+      line(475 , 150 , 475 , 600);
+      line(475 , 600 , 625 , 600);
+      line(625 , 150 , 625 , 600);
       line(625 , 150 , 775 , 150);
-      line(625 , 150 , 625 , 500);
-      line(625 , 500 , 775 , 500);
-      line(775 , 150 , 775 , 500);
+      line(625 , 150 , 625 , 600);
+      line(625 , 600 , 775 , 600);
+      line(775 , 150 , 775 , 600);
 }
 
 void displayCards(Player player) {
@@ -371,17 +377,17 @@ void displaySchool(){
       text("PipChance" , 500 , 500);
       text(".2" , 500  , 550);
       line(325 , 150 , 475 , 150);
-      line(325 , 150 , 325 , 500);
-      line(325 , 500 , 475 , 500);
-      line(475 , 150 , 475 , 500);
+      line(325 , 150 , 325 , 550);
+      line(325 , 550 , 475 , 550);
+      line(475 , 150 , 475 , 550);
       line(475 , 150 , 625 , 150);
-      line(475 , 150 , 475 , 500);
-      line(475 , 500 , 625 , 500);
-      line(625 , 150 , 625 , 500);
+      line(475 , 150 , 475 , 550);
+      line(475 , 550 , 625 , 550);
+      line(625 , 150 , 625 , 550);
       line(625 , 150 , 775 , 150);
-      line(625 , 150 , 625 , 500);
-      line(625 , 500 , 775 , 500);
-      line(775 , 150 , 775 , 500);
+      line(625 , 150 , 625 , 550);
+      line(625 , 550 , 775 , 550);
+      line(775 , 150 , 775 , 550);
 }
 
 //Keyboard Setup
