@@ -158,3 +158,10 @@ info
 //added a support array instance variable to Player which keeps track of shields and blades
 //edited the Card class to have multiplier instance variable, thinking of getting rid of the CardSuperClass
 //added shield and blade accessor and mutator methods to test and use them in battle
+
+## date 6/10/23
+info
+//added a new screen at the start of the game where both users can select what School they want their Player to be
+//added the ability for a Player to heal themselves(pixie card)
+//fixed minor code and logic issues
+//changed the Cards in each School's deck to build school identity
