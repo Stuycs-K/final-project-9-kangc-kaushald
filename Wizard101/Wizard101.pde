@@ -211,6 +211,7 @@ void draw(){
        text(": "+player1.getBlade() , 275 , 150);
        blade = loadImage("blade1.png");
        image(blade , 250 , 125);
+       text("Cards remaining: " + player1.deckSize(), 275, 200);
       
       text("Player 2", width-100, 50);
       text(": "+player2.getHealth(), width - 100, 100);
@@ -225,6 +226,7 @@ void draw(){
        image(shield , width - 225 , 75);
        text(": "+player2.getBlade() , width - 200 , 150);
        image(blade , width - 225 , 125);
+       text("Cards remaining: " + player2.deckSize(), width - 380, 200);
     }
   } else {
     gameover = loadImage("Game Over.png");
