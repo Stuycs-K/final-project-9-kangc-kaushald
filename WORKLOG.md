@@ -48,6 +48,17 @@ Successfully imported an image to display for CardSuperClass
 ### date 6/7/23
 Worked on the Storm School to completion
 
+### date 6/8/23
+Changed the display of stats for players in the game to see the icons used in the game instead of texts such as "Damage" or "Resistance"
+
+### date 6/9/23
+Tried to create a school select screen but failed. Worked on creating ice school and making the game over screen looking better
+
+### date 6/10/23
+Created a discard command for cards for players. Created display for blades and shield for Players
+
+### date 6/11/23
+Created updated UML diagram
 
 info
 
