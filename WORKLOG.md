@@ -165,3 +165,8 @@ info
 //added the ability for a Player to heal themselves(pixie card)
 //fixed minor code and logic issues
 //changed the Cards in each School's deck to build school identity
+
+## date 6/11/23
+info
+//updated the README file
+//minor graphics changes and School stats
