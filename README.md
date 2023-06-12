@@ -1,5 +1,13 @@
 # APCS Final Project
 THIS DOCUMENT IS REQUIRED
+
 ## Group Info
+Kode Kangsters
+Chanmin Kang
+Dean Kaushal
+
 ## Overview
+We plan on emulating a game called Wizard101. It is played between two users, each having their own deck. At the start of the game, 5 random cards from each player’s deck spawns into their hands that they can use. Cards can do damage, heal, enhance other spells, or protect the player. Each time a player uses or discards a card, their 5 card hand is replenished randomly from the cards remaining in their deck. Cards used or discarded cannot be recovered. Cards use "pips" to cast, some take zero pips. A player gains pips every round. To win, the player must damage their opponent to zero health.
+
 ## Instructions
+The game starts by letting each user select the School of their Wizard. Following the prompts on the screen, the first user can press ‘I’ for the Ice school, a school known for its high health and resistance, ‘L’ for the Life school, a school known for its ability to heal, and ‘S’ for the Storm school, a school known for its low health but high damage. After user 1 selects a School, they will have the option to select a piece of Gear that will modify their Wizard’s stats. There are 3 pieces of Gear, press ‘D’ for one that gives more damage than resistance, press ‘R’ for one that gives more resistance than damage, and press ‘E’ for one that gives equal amounts of both. Then, this process will be repeated for the second user who will have the same exact options. Once both users have a Wizard with their selected Gear, the game will start with Player 1. Both Players will start with one pip, which is a sort of currency used to cast spells. The more pips a spell needs, the more damage it does. Cards that use pips decrease the amount of pips a Player has by the pips the Card needs. Support cards, like blades and shields, can modify the damage incoming or outcoming attacks can do and take zero pips. Each turn, the user can cast a spell if they have enough pips for it, discard cards they don’t want, or pass if they don’t have anything in their hand they can use. After each round, Players gain either 1 or 2 pips, based on their luck and power pip chance. When a Player casts a spell that doesn’t have a 100% cast rate, there is an unlucky chance that their Card fizzles and does nothing. The screen will flash red when this happens. A Card that fizzles will remain in a Player’s deck and not use up any pips, meaning they can use it again next round if they want. The game ends when one Player reaches zero health or doesn’t have enough Cards to fill their hand, 5. You can replay the game by clicking the Play button on Processing again.
