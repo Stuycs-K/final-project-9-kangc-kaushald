@@ -211,7 +211,7 @@ void draw(){
        text(": "+player1.getBlade() , 275 , 150);
        blade = loadImage("blade1.png");
        image(blade , 250 , 125);
-       text("Cards remaining: " + player1.deckSize(), 275, 200);
+       text("Cards: " + player1.deckSize(), 275, 200);
       
       text("Player 2", width-100, 50);
       text(": "+player2.getHealth(), width - 100, 100);
@@ -226,7 +226,7 @@ void draw(){
        image(shield , width - 225 , 75);
        text(": "+player2.getBlade() , width - 200 , 150);
        image(blade , width - 225 , 125);
-       text("Cards remaining: " + player2.deckSize(), width - 380, 200);
+       text("Cards: " + player2.deckSize(), width - 300, 200);
     }
   } else {
     gameover = loadImage("Game Over.png");
@@ -508,7 +508,9 @@ void displaySchool(){
       text("1.05" , 375 , 450);
       text("PipChance" , 350 , 500);
       text(".2" , 375 , 550);
+      fill(255, 0, 255);
       text("Press L" , 350 , 575);
+      fill(0);
       text("Storm" , 525 , 175);
       text("Health" , 500 , 200);
       text("800" , 525 , 250);
@@ -518,7 +520,9 @@ void displaySchool(){
       text("1.0" , 525 , 450);
       text("PipChance" , 500 , 500);
       text(".2" , 525  , 550);
+      fill(255, 0, 255);
       text("Press S" , 500 , 575);
+      fill(0);
       text("Ice" , 675 , 175);
       text("Health" , 650 , 200);
       text("1200" , 675 , 250);
@@ -528,7 +532,9 @@ void displaySchool(){
       text("1.2" , 675 , 450);
       text("PipChance" , 650 , 500);
       text(".3" , 675  , 550);
+      fill(255, 0, 255);
       text("Press I" , 650 , 575);
+      fill(0);
       line(325 , 150 , 475 , 150);
       line(325 , 150 , 325 , 600);
       line(325 , 600 , 475 , 600);
