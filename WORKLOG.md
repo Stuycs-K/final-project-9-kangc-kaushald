@@ -170,3 +170,16 @@ info
 info
 //updated the README file
 //minor graphics changes and School stats
+
+## Working features
+//Both Players can select from 3 schools: Life, Gear, and Ice.
+//Both Players can select a piece of Gear that alters their core stats
+//Players can use number keys 1-5 to use Cards in their hand
+//Players can use bottom row letter keys Z-B to discard Cards in their hand
+//Players can press P to pass 
+//The pip system works as well as the power pip chance
+//The support card deck array works, allowing Players to use Shields and Blades
+//Damage and resistance variables from Player stats and Shields/Blades effect damage accordingly
+//Healing Cards work and don't push Player health over their max health
+//Card art loads correctly for each Card
+//Game over logic works
